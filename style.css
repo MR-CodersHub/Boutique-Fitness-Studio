@@ -469,6 +469,7 @@ ul {
   padding-bottom: 80px;
   background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-beige) 100%);
   position: relative;
+  overflow: hidden;
 }
 
 .hero-grid {
@@ -2197,6 +2198,9 @@ body.theme-dark .forgot-password-link:hover {
 }
 
 @media (max-width: 992px) {
+  .floating-shape {
+    display: none !important;
+  }
   .section {
     padding: 80px 0;
   }
