@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanctuary Gallery | VYORA Architectural Showcase</title>
+  <meta name="description" content="Tour VYORA's architectural sanctuary interior, heated reformer plaster arches, botanical zen gardens, and Matcha lounges.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Floating Background Shapes -->
+  <div class="floating-shape shape-circle shape-1" style="opacity: 0.15;"></div>
+  <div class="floating-shape shape-ring shape-3" style="opacity: 0.15;"></div>
+
+  <!-- Header Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo" id="nav-logo">
+        <div class="logo-icon"></div>
+        <div class="logo-text">VYORA</div>
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="trainers.html" class="nav-link">Trainers</a>
+        <a href="schedule.html" class="nav-link">Schedule</a>
+        <a href="gallery.html" class="nav-link active">Gallery</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+          <span class="theme-toggle-track">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+          </span>
+          <span class="theme-toggle-thumb">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+          </span>
+        </button>
+
+        <!-- User Account Profile Dropdown -->
+        <div class="user-menu-container" id="user-menu-container">
+          <button class="user-profile-btn" id="user-profile-btn" aria-label="User Account">
+            <i class="far fa-user-circle"></i>
+          </button>
+          <div class="user-dropdown" id="user-dropdown">
+            <div class="user-dropdown-header">
+              <span class="user-name">Elena Rostova</span>
+              <span class="user-tier">Premium Member</span>
+            </div>
+            <hr class="user-dropdown-divider">
+            <div class="user-dropdown-item login-signup-line">
+              <i class="fas fa-sign-in-alt"></i>
+              <a href="#" id="nav-login-btn">Login</a>
+              <span class="login-signup-slash">/</span>
+              <a href="#" id="nav-signup-btn">Sign Up</a>
+            </div>
+            <a href="dashboard.html" class="user-dropdown-item"><i class="fas fa-columns"></i> User Dashboard</a>
+            <a href="admin.html" class="user-dropdown-item"><i class="fas fa-cog"></i> Admin Dashboard</a>
+          </div>
+        </div>
+
+        <button class="btn btn-primary open-booking-btn" id="nav-booking-btn">Book Trial Class</button>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="home2.html" class="mobile-nav-link">Home 2</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="programs.html" class="mobile-nav-link">Programs</a>
+    <a href="trainers.html" class="mobile-nav-link">Trainers</a>
+    <a href="schedule.html" class="mobile-nav-link">Schedule</a>
+    <a href="gallery.html" class="mobile-nav-link active">Gallery</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-cta">
+      <button class="btn btn-primary open-booking-btn toggle-mobile-menu" style="width: 100%;">Book Trial Class</button>
+    </div>
+  </nav>
+
+  <!-- Inner Page Hero -->
+  <section class="hero" style="min-height: 50vh; padding-top: calc(var(--header-height) + 60px); padding-bottom: 60px; background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-beige) 100%);">
+    <div class="container" style="text-align: center;">
+      <div class="reveal">
+        <span class="section-tag">VISUAL TOUR</span>
+        <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 16px;">Our Architectural <span>Sanctuary</span></h1>
+        <p class="hero-description" style="margin: 0 auto; max-width: 600px;">
+          Tour VYORA's calming interior space, warm plaster Reformer room, private eucalyptus towel lounge, and zen botanical gardens.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architectural Masonry Gallery Section -->
+  <section class="section" style="background-color: var(--color-white);" id="gallery-section">
+    <div class="container">
+      
+      <!-- Category Filter Pills -->
+      <div class="blog-filters reveal" style="margin-bottom: 40px;" id="gallery-filters">
+        <button class="blog-filter-btn active" data-filter="all">All Spaces</button>
+        <button class="blog-filter-btn" data-filter="reformer">Reformer Room</button>
+        <button class="blog-filter-btn" data-filter="yoga">Yoga & Zen</button>
+        <button class="blog-filter-btn" data-filter="lounge">Matcha Lounge</button>
+        <button class="blog-filter-btn" data-filter="details">Sanctuary Details</button>
+      </div>
+
+      <!-- Mosaic Grid -->
+      <div class="blog-grid" id="programs-pillar-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;">
+        
+        <!-- Image 1 -->
+        <div class="gallery-item program-card reveal" data-category="reformer">
+          <div class="gallery-img-box" style="position: relative; overflow: hidden; border-radius: var(--radius-lg); aspect-ratio: 4/3; cursor: pointer; border: 1px solid var(--color-beige);">
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=600&auto=format&fit=crop" alt="Heated Plaster Reformer Studio" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
+            <div class="gallery-hover-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 107, 26, 0.15); opacity: 0; transition: var(--transition-smooth); display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 1.5rem;">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <h4 style="font-family: var(--font-heading); margin-top: 12px; font-weight: 700; font-size: 1.05rem;">Reformer Plaster Studio</h4>
+          <p style="font-size: 0.82rem; color: var(--color-orange); text-transform: uppercase; font-weight: 600;">Reformer Room</p>
+        </div>
+
+        <!-- Image 2 -->
+        <div class="gallery-item program-card reveal" data-category="yoga">
+          <div class="gallery-img-box" style="position: relative; overflow: hidden; border-radius: var(--radius-lg); aspect-ratio: 4/3; cursor: pointer; border: 1px solid var(--color-beige);">
+            <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=600&auto=format&fit=crop" alt="Sunrise Vinyasa Sanctuary" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
+            <div class="gallery-hover-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 107, 26, 0.15); opacity: 0; transition: var(--transition-smooth); display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 1.5rem;">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <h4 style="font-family: var(--font-heading); margin-top: 12px; font-weight: 700; font-size: 1.05rem;">Sunrise Vinyasa Sanctuary</h4>
+          <p style="font-size: 0.82rem; color: var(--color-orange); text-transform: uppercase; font-weight: 600;">Yoga & Zen</p>
+        </div>
+
+        <!-- Image 3 -->
+        <div class="gallery-item program-card reveal" data-category="lounge">
+          <div class="gallery-img-box" style="position: relative; overflow: hidden; border-radius: var(--radius-lg); aspect-ratio: 4/3; cursor: pointer; border: 1px solid var(--color-beige);">
+            <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=600&auto=format&fit=crop" alt="Antioxidant Teas & Botanical Lounge" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
+            <div class="gallery-hover-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 107, 26, 0.15); opacity: 0; transition: var(--transition-smooth); display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 1.5rem;">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <h4 style="font-family: var(--font-heading); margin-top: 12px; font-weight: 700; font-size: 1.05rem;">Matcha & Botanical Lounge</h4>
+          <p style="font-size: 0.82rem; color: var(--color-orange); text-transform: uppercase; font-weight: 600;">Matcha Lounge</p>
+        </div>
+
+        <!-- Image 4 -->
+        <div class="gallery-item program-card reveal" data-category="details">
+          <div class="gallery-img-box" style="position: relative; overflow: hidden; border-radius: var(--radius-lg); aspect-ratio: 4/3; cursor: pointer; border: 1px solid var(--color-beige);">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600&auto=format&fit=crop" alt="Eucalyptus cold Towels & Aromas" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
+            <div class="gallery-hover-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 107, 26, 0.15); opacity: 0; transition: var(--transition-smooth); display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 1.5rem;">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <h4 style="font-family: var(--font-heading); margin-top: 12px; font-weight: 700; font-size: 1.05rem;">Eucalyptus Towels & Aromas</h4>
+          <p style="font-size: 0.82rem; color: var(--color-orange); text-transform: uppercase; font-weight: 600;">Sanctuary Details</p>
+        </div>
+
+        <!-- Image 5 -->
+        <div class="gallery-item program-card reveal" data-category="yoga">
+          <div class="gallery-img-box" style="position: relative; overflow: hidden; border-radius: var(--radius-lg); aspect-ratio: 4/3; cursor: pointer; border: 1px solid var(--color-beige);">
+            <img src="https://images.unsplash.com/photo-1579126038374-606c598a8a62?q=80&w=600&auto=format&fit=crop" alt="Sound Bath Singing Bowls" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
+            <div class="gallery-hover-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 107, 26, 0.15); opacity: 0; transition: var(--transition-smooth); display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 1.5rem;">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <h4 style="font-family: var(--font-heading); margin-top: 12px; font-weight: 700; font-size: 1.05rem;">Singing Crystal Singing Bowls</h4>
+          <p style="font-size: 0.82rem; color: var(--color-orange); text-transform: uppercase; font-weight: 600;">Yoga & Zen</p>
+        </div>
+
+        <!-- Image 6 -->
+        <div class="gallery-item program-card reveal" data-category="details">
+          <div class="gallery-img-box" style="position: relative; overflow: hidden; border-radius: var(--radius-lg); aspect-ratio: 4/3; cursor: pointer; border: 1px solid var(--color-beige);">
+            <img src="https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?q=80&w=600&auto=format&fit=crop" alt="Luxury Organic toiletries" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
+            <div class="gallery-hover-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 107, 26, 0.15); opacity: 0; transition: var(--transition-smooth); display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 1.5rem;">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <h4 style="font-family: var(--font-heading); margin-top: 12px; font-weight: 700; font-size: 1.05rem;">Organic Luxury Toiletries</h4>
+          <p style="font-size: 0.82rem; color: var(--color-orange); text-transform: uppercase; font-weight: 600;">Sanctuary Details</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox"><i class="fas fa-times"></i></button>
+    <div class="lightbox-content">
+      <img src="" alt="" id="lightbox-img">
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo footer-logo">
+            <div class="logo-icon"></div>
+            <div class="logo-text">VYORA</div>
+          </a>
+          <p class="footer-about-text">
+            A premium boutique wellness oasis crafted to elevate physical strength and mental silence. Experience movement as self-care.
+          </p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Home 2</a></li>
+            <li><a href="about.html">About Studio</a></li>
+            <li><a href="programs.html">Fitness Pillars</a></li>
+            <li><a href="schedule.html">Class Schedule</a></li>
+            <li><a href="dashboard.html">My Dashboard</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Our Pillars</h3>
+          <ul class="footer-links">
+            <li><a href="programs.html">Precision Pilates</a></li>
+            <li><a href="programs.html">Barre Conditioning</a></li>
+            <li><a href="programs.html">Yoga Vinyasa Flow</a></li>
+            <li><a href="programs.html">Sound Bath Meditation</a></li>
+            <li><a href="programs.html">VYORA Athletic HIIT</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Studio Oasis</h3>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>128 Serenity Boulevard, Suite B<br>Beverly Hills, CA 90210</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+1 (310) 555-0190</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>oasis@vyorafitness.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 VYORA Wellness Brand. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Booking Modal Structure -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close Modal"><i class="fas fa-times"></i></button>
+      
+      <!-- Default Form -->
+      <div id="modal-form-content">
+        <h2 class="modal-title">Book a <span>Trial Session</span></h2>
+        <p class="modal-desc">Enjoy a complimentary trial class. Fill in your details, and our wellness concierge will contact you within 24 hours.</p>
+        
+        <form class="modal-form" id="booking-form">
+          <div class="form-group">
+            <label for="booking-name" class="form-label">Full Name</label>
+            <input type="text" id="booking-name" class="form-input" placeholder="e.g. Elena Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-email" class="form-label">Email Address</label>
+            <input type="email" id="booking-email" class="form-input" placeholder="e.g. elena@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-class" class="form-label">Select Pillar / Session</label>
+            <select id="booking-class" class="form-input" required>
+              <option value="" disabled selected>-- Select a Session --</option>
+              <option value="Sunrise Yoga Fusion">Sunrise Yoga Fusion (Yoga)</option>
+              <option value="Precision Pilates">Precision Pilates (Reformer)</option>
+              <option value="Classic Barre Burn">Classic Barre Burn (Barre)</option>
+              <option value="Deep Sound Bath & Breath">Sound Bath & Meditation (Mindful)</option>
+              <option value="VYORA Athletic HIIT">VYORA Athletic HIIT (Strength)</option>
+              <option value="Deep Restorative Stretch">Deep Restorative Stretch (Recovery)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="booking-notes" class="form-label">Notes (e.g. Injuries, level, goals)</label>
+            <textarea id="booking-notes" class="form-input" placeholder="Let us know how we can tailor your experience..." rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary modal-btn">Send Booking Request</button>
+        </form>
+      </div>
+
+      <!-- Success Screen -->
+      <div id="modal-success-content" class="modal-success">
+        <div class="modal-success-icon"><i class="fas fa-check"></i></div>
+        <h3 class="modal-success-title">Booking Requested</h3>
+        <p class="modal-success-desc">Thank you for choosing VYORA. A wellness coordinator has received your details and will call or email you shortly to confirm your complimentary slot.</p>
+        <button class="btn btn-primary" id="modal-success-close-btn" style="width: 100%;">Return to Site</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Account Auth Modals -->\n\n    <!-- User Account Auth Modals -->
+    <div class="auth-overlay" id="authModal">
+      <div class="auth-modal-box">
+        <button class="auth-close" id="auth-close" aria-label="Close Form"><i class="fas fa-times"></i></button>
+
+        <!-- Login View -->
+        <div id="login-form-content">
+          <h2 class="auth-title">Welcome <span>Back</span></h2>
+          <p class="auth-subtitle">Enter your sanctuary details to access your dashboard portal.</p>
+          <form class="modal-form" id="login-form">
+            <div class="form-group">
+              <label for="login-email" class="form-label">Email Address</label>
+              <input type="email" id="login-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label for="login-password" class="form-label">Password</label>
+              <div class="password-input-wrapper">
+                <input type="password" id="login-password" class="form-input" placeholder="••••••••" required style="width: 100%;">
+                <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <div class="form-help">
+                <a href="#" class="forgot-password-link" id="forgot-password-btn">Forgot Password?</a>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Enter Portal</button>
+            <p style="font-size: 0.82rem; text-align: center; margin-top: 20px; color: var(--color-gray);">
+              New to VYORA? <a href="#" id="go-to-signup" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Create Sanctuary Account</a>
+            </p>
+          </form>
+        </div>
+
+        <!-- Sign Up View -->
+        <div id="signup-form-content" style="display: none;">
+          <h2 class="auth-title">Create <span>Sanctuary Account</span></h2>
+          <p class="auth-subtitle">Join VYORA boutique studio and begin your premium journey.</p>
+          <form class="modal-form" id="signup-form">
+            <div class="form-group">
+              <label for="signup-name" class="form-label">Full Name</label>
+              <input type="text" id="signup-name" class="form-input" placeholder="Elena Smith" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label for="signup-email" class="form-label">Email Address</label>
+              <input type="email" id="signup-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label for="signup-password" class="form-label">Password</label>
+              <div class="password-input-wrapper">
+                <input type="password" id="signup-password" class="form-input" placeholder="Min. 8 characters" required style="width: 100%;">
+                <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <!-- Password Strength meter box -->
+              <div style="height: 4px; background-color: var(--color-beige); border-radius: 2px; margin-top: 8px; overflow: hidden; position: relative;">
+                <div id="password-strength-bar" style="height: 100%; width: 0%; background-color: #E74C3C; transition: all 0.3s ease;"></div>
+              </div>
+              <span id="password-strength-text" style="font-size: 0.72rem; color: var(--color-gray); margin-top: 4px; display: block;">Strength: Weak</span>
+            </div>
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Register Sanctuary Account</button>
+            <p style="font-size: 0.82rem; text-align: center; margin-top: 20px; color: var(--color-gray);">
+              Already have an account? <a href="#" id="go-to-login" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Sign In</a>
+            </p>
+          </form>
+        </div>
+
+        <!-- Forgot Password View -->
+        <div id="forgot-password-content" style="display: none;">
+          <h2 class="auth-title">Restore <span>Sanctuary Details</span></h2>
+          <p class="auth-subtitle">Enter your email and we'll send you instructions to recover your account.</p>
+          <form class="modal-form" id="forgot-password-form">
+            <div class="form-group">
+              <label for="forgot-email" class="form-label">Email Address</label>
+              <input type="email" id="forgot-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+            </div>
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Send Reset Link</button>
+            <p style="font-size: 0.82rem; text-align: center; margin-top: 20px; color: var(--color-gray);">
+              Remember your details? <a href="#" id="go-to-login-from-forgot" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Sign In</a>
+            </p>
+          </form>
+          <!-- Success state inside forgot password -->
+          <div id="forgot-success-content" style="display: none; text-align: center; padding: 20px 0;">
+            <div style="font-size: 3rem; color: #2ECC71; margin-bottom: 16px;"><i class="fas fa-check-circle"></i></div>
+            <h3 style="font-family: var(--font-heading); font-weight: 700; margin-bottom: 8px;">Reset Link Sent</h3>
+            <p style="font-size: 0.9rem; color: var(--color-gray); margin-bottom: 20px;">We have sent a link to your email to restore your sanctuary details.</p>
+            <button type="button" class="btn btn-primary" id="forgot-success-back-btn" style="width: 100%;">Back to Sign In</button>
+          </div>
+        </div>
+      </div>
+    </div>\n\n    <!-- JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

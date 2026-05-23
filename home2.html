@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VYORA | Luxury Wellness Oasis (Alternative Home)</title>
+  <meta name="description" content="Step into VYORA's alternative wellness experience. Immerse yourself in premium Barre, Pilates, Yoga, and Meditation programs designed for luxury lifestyle and vitality.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="theme-dark">
+
+  <!-- Floating Abstract Background Shapes -->
+  <div class="floating-shape shape-circle shape-1" style="opacity: 0.15;"></div>
+  <div class="floating-shape shape-circle shape-3" style="opacity: 0.1;"></div>
+
+  <!-- Header Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo" id="nav-logo">
+        <div class="logo-icon"></div>
+        <div class="logo-text">VYORA</div>
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link active">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="trainers.html" class="nav-link">Trainers</a>
+        <a href="schedule.html" class="nav-link">Schedule</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+          <span class="theme-toggle-track">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+          </span>
+          <span class="theme-toggle-thumb">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+          </span>
+        </button>
+
+        <!-- User Account Profile Dropdown -->
+        <div class="user-menu-container" id="user-menu-container">
+          <button class="user-profile-btn" id="user-profile-btn" aria-label="User Account">
+            <i class="far fa-user-circle"></i>
+          </button>
+          <div class="user-dropdown" id="user-dropdown">
+            <div class="user-dropdown-header">
+              <span class="user-name">Elena Rostova</span>
+              <span class="user-tier">Premium Member</span>
+            </div>
+            <hr class="user-dropdown-divider">
+            <div class="user-dropdown-item login-signup-line">
+              <i class="fas fa-sign-in-alt"></i>
+              <a href="#" id="nav-login-btn">Login</a>
+              <span class="login-signup-slash">/</span>
+              <a href="#" id="nav-signup-btn">Sign Up</a>
+            </div>
+            <a href="dashboard.html" class="user-dropdown-item"><i class="fas fa-columns"></i> User Dashboard</a>
+            <a href="admin.html" class="user-dropdown-item"><i class="fas fa-cog"></i> Admin Dashboard</a>
+          </div>
+        </div>
+
+        <button class="btn btn-primary open-booking-btn" id="nav-booking-btn">Book Trial Class</button>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="home2.html" class="mobile-nav-link active">Home 2</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="programs.html" class="mobile-nav-link">Programs</a>
+    <a href="trainers.html" class="mobile-nav-link">Trainers</a>
+    <a href="schedule.html" class="mobile-nav-link">Schedule</a>
+    <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-cta">
+      <button class="btn btn-primary open-booking-btn toggle-mobile-menu" style="width: 100%;">Book Trial Class</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section (Alternative Dark Design) -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <div class="hero-badge" style="background-color: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1); color: var(--color-white);">
+            <i class="fas fa-sparkles"></i> Redefining Feminine Fitness & Grace
+          </div>
+          <h1 class="hero-title">
+            Ignite Your Strength. <br><span>Nurture Your Mind.</span>
+          </h1>
+          <p class="hero-description">
+            Step into an elevated wellness universe. Experience state-of-the-art Reformer Pilates, intense Barre conditioning, and soothing sound bath meditations inside a premium architectural space.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary open-booking-btn" id="hero-cta-primary">Claim Free Class</button>
+            <a href="about.html" class="btn btn-secondary" id="hero-cta-secondary">Explore Philosophy</a>
+          </div>
+          
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h3 class="counter" data-target="5000">0</h3>
+              <p>Active Members</p>
+            </div>
+            <div class="stat-item">
+              <h3 class="counter" data-target="15">0</h3>
+              <p>Expert Coaches</p>
+            </div>
+            <div class="stat-item">
+              <h3 class="counter" data-target="98">0</h3>
+              <p>Satisfaction Rate</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image-container reveal">
+          <div class="hero-circle-bg" style="background: radial-gradient(circle, rgba(255, 107, 26, 0.15) 0%, transparent 70%);"></div>
+          <!-- Custom Premium Studio Image -->
+          <img src="assets/about_studio.png" alt="VYORA Reformer" class="hero-img" style="transform: rotate(-1deg); border-color: rgba(255, 255, 255, 0.1);">
+          
+          <!-- Floating UI Cards -->
+          <div class="hero-floating-card floating-card-1" style="background: rgba(27, 27, 27, 0.85); border-color: rgba(255, 255, 255, 0.1);">
+            <div class="floating-card-icon" style="background-color: var(--color-orange);"><i class="fas fa-certificate"></i></div>
+            <div class="floating-card-info">
+              <h4 style="color: var(--color-white);">VIP Guest Pass</h4>
+              <p style="color: var(--color-peach);">1 Complimentary Entry</p>
+            </div>
+          </div>
+          <div class="hero-floating-card floating-card-2" style="background: rgba(27, 27, 27, 0.85); border-color: rgba(255, 255, 255, 0.1);">
+            <div class="floating-card-icon" style="background-color: var(--color-orange);"><i class="fas fa-om"></i></div>
+            <div class="floating-card-info">
+              <h4 style="color: var(--color-white);">Sound Bath Therapy</h4>
+              <p style="color: var(--color-peach);">Every Sunday Morning</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Infinite Scrolling Marquee (Dark theme style) -->
+  <div class="marquee-container">
+    <div class="marquee-content">
+      <span class="marquee-item"><i class="fas fa-sparkles"></i> Move With Grace</span>
+      <span class="marquee-item"><i class="fas fa-circle-notch"></i> Ground The Mind</span>
+      <span class="marquee-item"><i class="fas fa-heart"></i> Elevate The Soul</span>
+      <span class="marquee-item"><i class="fas fa-spa"></i> Restorative Sanctuary</span>
+      <span class="marquee-item"><i class="fas fa-dumbbell"></i> Infinite Strength</span>
+      <!-- Duplicated for wrapping -->
+      <span class="marquee-item"><i class="fas fa-sparkles"></i> Move With Grace</span>
+      <span class="marquee-item"><i class="fas fa-circle-notch"></i> Ground The Mind</span>
+      <span class="marquee-item"><i class="fas fa-heart"></i> Elevate The Soul</span>
+      <span class="marquee-item"><i class="fas fa-spa"></i> Restorative Sanctuary</span>
+      <span class="marquee-item"><i class="fas fa-dumbbell"></i> Infinite Strength</span>
+    </div>
+  </div>
+
+  <!-- Overview Highlight section -->
+  <section class="section" style="background-color: #121212; padding: 100px 0;">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content reveal">
+          <div class="section-header" style="text-align: left; margin-bottom: 24px;">
+            <span class="section-tag">Vyora Aesthetics</span>
+            <h2 class="section-title">Elevate Your <span>Daily Practice</span></h2>
+          </div>
+          <p class="about-philosophy">"Movement is the art of grounding the soul."</p>
+          <p class="about-text" style="color: rgba(255, 255, 255, 0.6); margin-bottom: 30px;">
+            We offer meticulously planned spaces optimized with custom thermal ventilation, mood lighting, and clean geometric structures. Every detail is focused on helping you find absolute concentration, release physical tension, and connect with a group of supportive fitness advocates.
+          </p>
+          <div class="about-features" style="margin-bottom: 30px;">
+            <div class="about-feat-item">
+              <i class="fas fa-heart about-feat-icon"></i>
+              <div>
+                <h4 class="about-feat-title">Precision Barre & Pilates</h4>
+                <p class="about-feat-desc" style="color: rgba(255, 255, 255, 0.5);">Toning muscles using ballet bars and reform springs.</p>
+              </div>
+            </div>
+            <div class="about-feat-item">
+              <i class="fas fa-spa about-feat-icon"></i>
+              <div>
+                <h4 class="about-feat-title">Deep Recovery & Sound</h4>
+                <p class="about-feat-desc" style="color: rgba(255, 255, 255, 0.5);">Soothing sound bath meditations and dynamic muscle stretching.</p>
+              </div>
+            </div>
+          </div>
+          <a href="about.html" class="btn btn-primary">Meet Our Team</a>
+        </div>
+
+        <div class="about-images reveal">
+          <img src="assets/hero_wellness.png" alt="Vyora Yoga Flow" class="about-img-main" style="border: 6px solid rgba(255, 255, 255, 0.05);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Teaser -->
+  <section class="section" style="background-color: var(--color-black);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="color: var(--color-peach);">Selected Classes</span>
+        <h2 class="section-title">Designed for <span>Physical Mastery</span></h2>
+        <p class="section-desc" style="color: rgba(255, 255, 255, 0.6);">A snapshot of our key training modules. Tap for the full menu.</p>
+      </div>
+
+      <div class="programs-grid" style="margin-bottom: 48px;">
+        <div class="program-card reveal">
+          <div class="program-icon"><i class="fas fa-circle-notch"></i></div>
+          <h3 class="program-title">Precision Pilates</h3>
+          <p class="program-desc">Build foundational core strength, structural flexibility, and deep spinal alignment with dynamic mat and reformer workouts.</p>
+          <a href="programs.html" class="program-link">Read details <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="program-card reveal">
+          <div class="program-icon"><i class="fas fa-shoe-prints"></i></div>
+          <h3 class="program-title">Barre Burn</h3>
+          <p class="program-desc">Sculpt, align, and tone your muscles with low-impact, ballet-inspired isometric movements targeting high-repetition muscle groups.</p>
+          <a href="programs.html" class="program-link">Read details <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="program-card reveal">
+          <div class="program-icon"><i class="fas fa-om"></i></div>
+          <h3 class="program-title">Mindful Meditation</h3>
+          <p class="program-desc">Decompress with guided breathing, soothing sound bath journeys, and focused mindfulness to ease stress and restore clarity.</p>
+          <a href="programs.html" class="program-link">Read details <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <a href="programs.html" class="btn btn-secondary">Explore All 6 Pillars</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Class Intensity & Energy Levels Section -->
+  <section class="section" style="background-color: #121212; border-top: 1px solid rgba(255, 255, 255, 0.03);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="color: var(--color-peach);">Energy Levels</span>
+        <h2 class="section-title">Cultivated <span>Workout Intensities</span></h2>
+        <p class="section-desc" style="color: rgba(255, 255, 255, 0.6);">Our movement modules are engineered to fit your physiological state, from deep recovery to high cardiac output.</p>
+      </div>
+
+      <div class="programs-grid" style="margin-top: 40px;">
+        <!-- Level 1: Gentle Recovery & Mindful -->
+        <div class="program-card reveal" style="background-color: var(--color-black); border-color: rgba(255, 255, 255, 0.03);">
+          <div class="program-icon" style="background-color: rgba(255, 107, 26, 0.05); color: var(--color-peach);"><i class="fas fa-spa"></i></div>
+          <h3 class="program-title">Mindful Restore</h3>
+          <p class="program-desc" style="color: rgba(255, 255, 255, 0.6);">Includes sound bath, restorative stretch, and breathing exercises. Designed for autonomic nervous reset.</p>
+          <div style="margin-top: 20px;">
+            <div class="intensity-label-row">
+              <span>Cardio Output</span>
+              <span>20% (Low)</span>
+            </div>
+            <div class="intensity-bar-wrap">
+              <div class="intensity-bar" style="width: 20%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Level 2: Precision Toning & Alignment -->
+        <div class="program-card reveal" style="background-color: var(--color-black); border-color: rgba(255, 255, 255, 0.03);">
+          <div class="program-icon" style="background-color: rgba(255, 107, 26, 0.05); color: var(--color-peach);"><i class="fas fa-circle-notch"></i></div>
+          <h3 class="program-title">Precision Burn</h3>
+          <p class="program-desc" style="color: rgba(255, 255, 255, 0.6);">Includes classical Pilates reformer and graceful isometric Barre routines. Designed for muscular definition.</p>
+          <div style="margin-top: 20px;">
+            <div class="intensity-label-row">
+              <span>Cardio Output</span>
+              <span>65% (Moderate)</span>
+            </div>
+            <div class="intensity-bar-wrap">
+              <div class="intensity-bar" style="width: 65%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Level 3: Metabolic Conditioning -->
+        <div class="program-card reveal" style="background-color: var(--color-black); border-color: rgba(255, 255, 255, 0.03);">
+          <div class="program-icon" style="background-color: rgba(255, 107, 26, 0.05); color: var(--color-peach);"><i class="fas fa-bolt"></i></div>
+          <h3 class="program-title">Athletic Conditioning</h3>
+          <p class="program-desc" style="color: rgba(255, 255, 255, 0.6);">Includes athletic functional HIIT, plyometrics, and load stability conditioning. Designed for pure fat-burn.</p>
+          <div style="margin-top: 20px;">
+            <div class="intensity-label-row">
+              <span>Cardio Output</span>
+              <span>95% (Peak Output)</span>
+            </div>
+            <div class="intensity-bar-wrap">
+              <div class="intensity-bar" style="width: 95%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership Plans Section (Integrated) -->
+  <section class="memberships section" id="memberships" style="background-color: #121212; border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="color: var(--color-peach);">Membership Plans</span>
+        <h2 class="section-title" style="color: var(--color-white);">Invest in Your <span>Well-Being</span></h2>
+        <p class="section-desc" style="color: rgba(255, 255, 255, 0.6);">Choose a membership that fits your fitness lifestyle. No contracts, complete flexibility.</p>
+      </div>
+
+      <div class="memberships-grid">
+        <!-- Starter Tier -->
+        <div class="membership-card reveal" style="background-color: var(--color-black); border: 1px solid rgba(255, 255, 255, 0.05);">
+          <h3 class="membership-title" style="color: var(--color-white);">Essential Flow</h3>
+          <p class="membership-desc" style="color: var(--color-peach); opacity: 0.8;">Perfect for supplement training and mindful maintenance.</p>
+          <div class="membership-price" style="color: var(--color-white);">$99<span style="color: var(--color-peach); opacity: 0.8;">/mo</span></div>
+          <div class="membership-features">
+            <div class="membership-feat-item" style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px;"><i class="fas fa-check" style="color: var(--color-orange);"></i> 8 Boutique classes per month</div>
+            <div class="membership-feat-item" style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px;"><i class="fas fa-check" style="color: var(--color-orange);"></i> Access to Barre, Yoga & Stretch</div>
+            <div class="membership-feat-item" style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px;"><i class="fas fa-check" style="color: var(--color-orange);"></i> Premium changing room access</div>
+            <div class="membership-feat-item" style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px;"><i class="fas fa-check" style="color: var(--color-orange);"></i> Online class reservations</div>
+          </div>
+          <button class="btn btn-secondary open-booking-btn" data-plan="Essential Flow" style="color: var(--color-white); border-color: var(--color-white);">Select Plan</button>
+        </div>
+
+        <!-- Popular Tier -->
+        <div class="membership-card featured reveal" style="background-color: var(--color-black); border: 2px solid var(--color-orange);">
+          <h3 class="membership-title" style="color: var(--color-white);">Premium Balance</h3>
+          <p class="membership-desc" style="color: var(--color-peach); opacity: 0.8;">Our most popular level for full, unlimited lifestyle transformation.</p>
+          <div class="membership-price" style="color: var(--color-white);">$169<span style="color: var(--color-peach); opacity: 0.8;">/mo</span></div>
+          <div class="membership-features">
+            <div class="membership-feat-item" style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px;"><i class="fas fa-check" style="color: var(--color-orange);"></i> Unlimited studio classes</div>
+            <div class="membership-feat-item" style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px;"><i class="fas fa-check" style="color: var(--color-orange);"></i> Unlimited Reformer Pilates access</div>
+            <div class="membership-feat-item" style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px;"><i class="fas fa-check" style="color: var(--color-orange);"></i> 1 Guest pass per month</div>
+            <div class="membership-feat-item" style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px;"><i class="fas fa-check" style="color: var(--color-orange);"></i> Complimentary towel & lockers</div>
+            <div class="membership-feat-item" style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px;"><i class="fas fa-check" style="color: var(--color-orange);"></i> Early booking window (7 days)</div>
+          </div>
+          <button class="btn btn-primary open-booking-btn" data-plan="Premium Balance">Select Plan</button>
+        </div>
+
+        <!-- VIP Tier -->
+        <div class="membership-card reveal" style="background-color: var(--color-black); border: 1px solid rgba(255, 255, 255, 0.05);">
+          <h3 class="membership-title" style="color: var(--color-white);">Elite Wellness</h3>
+          <p class="membership-desc" style="color: var(--color-peach); opacity: 0.8;">Designed for the premium dedicated, spa-inspired experience.</p>
+          <div class="membership-price" style="color: var(--color-white);">$299<span style="color: var(--color-peach); opacity: 0.8;">/mo</span></div>
+          <div class="membership-features">
+            <div class="membership-feat-item" style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px;"><i class="fas fa-check" style="color: var(--color-orange);"></i> Unlimited studio classes</div>
+            <div class="membership-feat-item" style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px;"><i class="fas fa-check" style="color: var(--color-orange);"></i> 2 Private coach sessions per month</div>
+            <div class="membership-feat-item" style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px;"><i class="fas fa-check" style="color: var(--color-orange);"></i> 3 Guest passes per month</div>
+            <div class="membership-feat-item" style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px;"><i class="fas fa-check" style="color: var(--color-orange);"></i> Unlimited wellness lounge & tea bar</div>
+            <div class="membership-feat-item" style="color: rgba(255, 255, 255, 0.8); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 8px;"><i class="fas fa-check" style="color: var(--color-orange);"></i> Curated nutrition & hydration plans</div>
+          </div>
+          <button class="btn btn-secondary open-booking-btn" data-plan="Elite Wellness" style="color: var(--color-white); border-color: var(--color-white);">Select Plan</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" style="background-color: #121212;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Testimonials</span>
+        <h2 class="section-title">Stories of <span>Renewal</span></h2>
+      </div>
+
+      <div class="testimonials-wrapper reveal">
+        <div class="testimonials-slider" id="testimonials-slider">
+          <div class="testimonial-slide">
+            <p class="testimonial-quote" style="color: var(--color-white);">
+              "VYORA has completely transformed my mornings. The atmosphere is incredibly peaceful yet full of feminine energy. The instructors are patient, precise, and guide you down to every muscle group."
+            </p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Sophia Carter" class="testimonial-author-img">
+              <h4 class="testimonial-author-name" style="color: var(--color-white);">Sophia Carter</h4>
+              <p class="testimonial-author-role">Yoga & Pilates Enthusiast</p>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <p class="testimonial-quote" style="color: var(--color-white);">
+              "The Barre and Athletic HIIT classes are challenging but highly motivating. The minimalist interiors, warm peach light, and aromatherapy make every session feel like a premium self-care ritual."
+            </p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Natalie Brooks" class="testimonial-author-img">
+              <h4 class="testimonial-author-name" style="color: var(--color-white);">Natalie Brooks</h4>
+              <p class="testimonial-author-role">Barre Member</p>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <p class="testimonial-quote" style="color: var(--color-white);">
+              "It is more than just a boutique gym; it's a mental sanctuary. I leave the Sunday sound bath and stretch sessions completely relaxed and grounded. The community is incredibly warm and empowering."
+            </p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop" alt="Isabella Martinez" class="testimonial-author-img">
+              <h4 class="testimonial-author-name" style="color: var(--color-white);">Isabella Martinez</h4>
+              <p class="testimonial-author-role">Wellness Lounge Member</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials-dots" id="testimonials-dots">
+          <span class="testimonial-dot active" data-index="0"></span>
+          <span class="testimonial-dot" data-index="1"></span>
+          <span class="testimonial-dot" data-index="2"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo footer-logo">
+            <div class="logo-icon"></div>
+            <div class="logo-text">VYORA</div>
+          </a>
+          <p class="footer-about-text">
+            A premium boutique wellness oasis crafted to elevate physical strength and mental silence. Experience movement as self-care.
+          </p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Home 2</a></li>
+            <li><a href="about.html">About Studio</a></li>
+            <li><a href="programs.html">Fitness Pillars</a></li>
+            <li><a href="trainers.html">Meet Instructors</a></li>
+            <li><a href="schedule.html">Class Schedule</a></li>
+            <li><a href="membership.html">Sanctuary Rates</a></li>
+            <li><a href="gallery.html">Photo Gallery</a></li>
+            <li><a href="blog.html">VYORA Gazette</a></li>
+            <li><a href="dashboard.html">My Dashboard</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Our Pillars</h3>
+          <ul class="footer-links">
+            <li><a href="programs.html">Precision Pilates</a></li>
+            <li><a href="programs.html">Barre Conditioning</a></li>
+            <li><a href="programs.html">Yoga Vinyasa Flow</a></li>
+            <li><a href="programs.html">Sound Bath Meditation</a></li>
+            <li><a href="programs.html">VYORA Athletic HIIT</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Studio Oasis</h3>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>128 Serenity Boulevard, Suite B<br>Beverly Hills, CA 90210</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+1 (310) 555-0190</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>oasis@vyorafitness.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 VYORA Wellness Brand. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Booking Modal Structure -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close Modal"><i class="fas fa-times"></i></button>
+      
+      <!-- Default Form -->
+      <div id="modal-form-content">
+        <h2 class="modal-title" style="color: var(--color-black);">Book a <span>Trial Session</span></h2>
+        <p class="modal-desc">Enjoy a complimentary trial class. Fill in your details, and our wellness concierge will contact you within 24 hours.</p>
+        
+        <form class="modal-form" id="booking-form">
+          <div class="form-group">
+            <label for="booking-name" class="form-label">Full Name</label>
+            <input type="text" id="booking-name" class="form-input" placeholder="e.g. Elena Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-email" class="form-label">Email Address</label>
+            <input type="email" id="booking-email" class="form-input" placeholder="e.g. elena@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-class" class="form-label">Select Pillar / Session</label>
+            <select id="booking-class" class="form-input" required>
+              <option value="" disabled selected>-- Select a Session --</option>
+              <option value="Sunrise Yoga Fusion">Sunrise Yoga Fusion (Yoga)</option>
+              <option value="Precision Pilates">Precision Pilates (Reformer)</option>
+              <option value="Classic Barre Burn">Classic Barre Burn (Barre)</option>
+              <option value="Deep Sound Bath & Breath">Sound Bath & Meditation (Mindful)</option>
+              <option value="VYORA Athletic HIIT">VYORA Athletic HIIT (Strength)</option>
+              <option value="Deep Restorative Stretch">Deep Restorative Stretch (Recovery)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="booking-notes" class="form-label">Notes (e.g. Injuries, level, goals)</label>
+            <textarea id="booking-notes" class="form-input" placeholder="Let us know how we can tailor your experience..." rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary modal-btn">Send Booking Request</button>
+        </form>
+      </div>
+
+      <!-- Success Screen -->
+      <div id="modal-success-content" class="modal-success">
+        <div class="modal-success-icon"><i class="fas fa-check"></i></div>
+        <h3 class="modal-success-title" style="color: var(--color-black);">Booking Requested</h3>
+        <p class="modal-success-desc">Thank you for choosing VYORA. A wellness coordinator has received your details and will call or email you shortly to confirm your complimentary slot.</p>
+        <button class="btn btn-primary" id="modal-success-close-btn" style="width: 100%;">Return to Site</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Account Auth Modals -->\n\n    <!-- User Account Auth Modals -->
+    <div class="auth-overlay" id="authModal">
+      <div class="auth-modal-box">
+        <button class="auth-close" id="auth-close" aria-label="Close Form"><i class="fas fa-times"></i></button>
+
+        <!-- Login View -->
+        <div id="login-form-content">
+          <h2 class="auth-title">Welcome <span>Back</span></h2>
+          <p class="auth-subtitle">Enter your sanctuary details to access your dashboard portal.</p>
+          <form class="modal-form" id="login-form">
+            <div class="form-group">
+              <label for="login-email" class="form-label">Email Address</label>
+              <input type="email" id="login-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label for="login-password" class="form-label">Password</label>
+              <div class="password-input-wrapper">
+                <input type="password" id="login-password" class="form-input" placeholder="••••••••" required style="width: 100%;">
+                <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <div class="form-help">
+                <a href="#" class="forgot-password-link" id="forgot-password-btn">Forgot Password?</a>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Enter Portal</button>
+            <p style="font-size: 0.82rem; text-align: center; margin-top: 20px; color: var(--color-gray);">
+              New to VYORA? <a href="#" id="go-to-signup" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Create Sanctuary Account</a>
+            </p>
+          </form>
+        </div>
+
+        <!-- Sign Up View -->
+        <div id="signup-form-content" style="display: none;">
+          <h2 class="auth-title">Create <span>Sanctuary Account</span></h2>
+          <p class="auth-subtitle">Join VYORA boutique studio and begin your premium journey.</p>
+          <form class="modal-form" id="signup-form">
+            <div class="form-group">
+              <label for="signup-name" class="form-label">Full Name</label>
+              <input type="text" id="signup-name" class="form-input" placeholder="Elena Smith" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label for="signup-email" class="form-label">Email Address</label>
+              <input type="email" id="signup-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label for="signup-password" class="form-label">Password</label>
+              <div class="password-input-wrapper">
+                <input type="password" id="signup-password" class="form-input" placeholder="Min. 8 characters" required style="width: 100%;">
+                <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <!-- Password Strength meter box -->
+              <div style="height: 4px; background-color: var(--color-beige); border-radius: 2px; margin-top: 8px; overflow: hidden; position: relative;">
+                <div id="password-strength-bar" style="height: 100%; width: 0%; background-color: #E74C3C; transition: all 0.3s ease;"></div>
+              </div>
+              <span id="password-strength-text" style="font-size: 0.72rem; color: var(--color-gray); margin-top: 4px; display: block;">Strength: Weak</span>
+            </div>
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Register Sanctuary Account</button>
+            <p style="font-size: 0.82rem; text-align: center; margin-top: 20px; color: var(--color-gray);">
+              Already have an account? <a href="#" id="go-to-login" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Sign In</a>
+            </p>
+          </form>
+        </div>
+
+        <!-- Forgot Password View -->
+        <div id="forgot-password-content" style="display: none;">
+          <h2 class="auth-title">Restore <span>Sanctuary Details</span></h2>
+          <p class="auth-subtitle">Enter your email and we'll send you instructions to recover your account.</p>
+          <form class="modal-form" id="forgot-password-form">
+            <div class="form-group">
+              <label for="forgot-email" class="form-label">Email Address</label>
+              <input type="email" id="forgot-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+            </div>
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Send Reset Link</button>
+            <p style="font-size: 0.82rem; text-align: center; margin-top: 20px; color: var(--color-gray);">
+              Remember your details? <a href="#" id="go-to-login-from-forgot" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Sign In</a>
+            </p>
+          </form>
+          <!-- Success state inside forgot password -->
+          <div id="forgot-success-content" style="display: none; text-align: center; padding: 20px 0;">
+            <div style="font-size: 3rem; color: #2ECC71; margin-bottom: 16px;"><i class="fas fa-check-circle"></i></div>
+            <h3 style="font-family: var(--font-heading); font-weight: 700; margin-bottom: 8px;">Reset Link Sent</h3>
+            <p style="font-size: 0.9rem; color: var(--color-gray); margin-bottom: 20px;">We have sent a link to your email to restore your sanctuary details.</p>
+            <button type="button" class="btn btn-primary" id="forgot-success-back-btn" style="width: 100%;">Back to Sign In</button>
+          </div>
+        </div>
+      </div>
+    </div>\n\n    <!-- JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

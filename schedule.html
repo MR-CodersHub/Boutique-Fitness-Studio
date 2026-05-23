@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Schedule | VYORA Booking</title>
+  <meta name="description" content="Check our daily schedules for Barre, Reformer Pilates, Yoga Fusion, stretching, and HIIT classes. Reserve your spot at VYORA.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Floating Background Shapes -->
+  <div class="floating-shape shape-circle shape-3"></div>
+
+  <!-- Header Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo" id="nav-logo">
+        <div class="logo-icon"></div>
+        <div class="logo-text">VYORA</div>
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="trainers.html" class="nav-link">Trainers</a>
+        <a href="schedule.html" class="nav-link active">Schedule</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+          <span class="theme-toggle-track">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+          </span>
+          <span class="theme-toggle-thumb">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+          </span>
+        </button>
+
+        <!-- User Account Profile Dropdown -->
+        <div class="user-menu-container" id="user-menu-container">
+          <button class="user-profile-btn" id="user-profile-btn" aria-label="User Account">
+            <i class="far fa-user-circle"></i>
+          </button>
+          <div class="user-dropdown" id="user-dropdown">
+            <div class="user-dropdown-header">
+              <span class="user-name">Elena Rostova</span>
+              <span class="user-tier">Premium Member</span>
+            </div>
+            <hr class="user-dropdown-divider">
+            <div class="user-dropdown-item login-signup-line">
+              <i class="fas fa-sign-in-alt"></i>
+              <a href="#" id="nav-login-btn">Login</a>
+              <span class="login-signup-slash">/</span>
+              <a href="#" id="nav-signup-btn">Sign Up</a>
+            </div>
+            <a href="dashboard.html" class="user-dropdown-item"><i class="fas fa-columns"></i> User Dashboard</a>
+            <a href="admin.html" class="user-dropdown-item"><i class="fas fa-cog"></i> Admin Dashboard</a>
+          </div>
+        </div>
+
+        <button class="btn btn-primary open-booking-btn" id="nav-booking-btn">Book Trial Class</button>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="home2.html" class="mobile-nav-link">Home 2</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="programs.html" class="mobile-nav-link">Programs</a>
+    <a href="trainers.html" class="mobile-nav-link">Trainers</a>
+    <a href="schedule.html" class="mobile-nav-link active">Schedule</a>
+    <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-cta">
+      <button class="btn btn-primary open-booking-btn toggle-mobile-menu" style="width: 100%;">Book Trial Class</button>
+    </div>
+  </nav>
+
+  <!-- Inner Page Hero -->
+  <section class="hero" style="min-height: 50vh; padding-top: calc(var(--header-height) + 60px); padding-bottom: 60px; background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-beige) 100%);">
+    <div class="container" style="text-align: center;">
+      <div class="reveal">
+        <span class="section-tag">Book A Class</span>
+        <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 16px;">Weekly Class <span>Schedule</span></h1>
+        <p class="hero-description" style="margin: 0 auto; max-width: 600px;">
+          Choose a session that fits your day. Book a slot below to confirm your place. Class sizes are capped at 12 members.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Class Schedules Section -->
+  <section class="schedules section" style="background-color: var(--color-white);" id="schedule">
+    <div class="container">
+      
+      <div class="schedule-tabs-container reveal">
+        <div class="schedule-tabs">
+          <button class="schedule-tab active" data-day="monday">Monday</button>
+          <button class="schedule-tab" data-day="tuesday">Tuesday</button>
+          <button class="schedule-tab" data-day="wednesday">Wednesday</button>
+          <button class="schedule-tab" data-day="thursday">Thursday</button>
+          <button class="schedule-tab" data-day="friday">Friday</button>
+          <button class="schedule-tab" data-day="saturday">Saturday</button>
+          <button class="schedule-tab" data-day="sunday">Sunday</button>
+        </div>
+      </div>
+
+      <!-- Diurnal Time Filters -->
+      <div class="schedule-filters reveal">
+        <button class="schedule-filter-btn active" data-filter="all">All Sessions</button>
+        <button class="schedule-filter-btn" data-filter="morning">Morning (6 AM - 12 PM)</button>
+        <button class="schedule-filter-btn" data-filter="afternoon">Afternoon (12 PM - 5 PM)</button>
+        <button class="schedule-filter-btn" data-filter="evening">Evening (5 PM - 9 PM)</button>
+      </div>
+
+      <!-- Monday Panel -->
+      <div class="schedule-day-panel active" id="monday">
+        <div class="schedule-list">
+          <div class="schedule-row reveal">
+            <div class="schedule-time"><i class="far fa-clock"></i> 07:00 - 08:00 AM</div>
+            <div class="schedule-class">
+              <h4>Sunrise Yoga Fusion</h4>
+              <p>Mindful Vinyasa Flow â€¢ All levels welcome</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Beginner</span>
+                <span><i class="fas fa-fire"></i> ~320 kcal</span>
+                <span><i class="fas fa-door-open"></i> Studio A</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Chloe Adams" class="schedule-inst-img">
+              <span class="schedule-inst-name">Chloe Adams</span>
+            </div>
+            <div class="schedule-spots limited"><span></span> 4 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Sunrise Yoga Fusion (Mon 7:00 AM)">Book Slot</button>
+          </div>
+          <div class="schedule-row reveal">
+            <div class="schedule-time"><i class="far fa-clock"></i> 09:30 - 10:30 AM</div>
+            <div class="schedule-class">
+              <h4>Classic Barre Burn</h4>
+              <p>Ballet posture & Isometrics â€¢ High-energy</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Intermediate</span>
+                <span><i class="fas fa-fire"></i> ~420 kcal</span>
+                <span><i class="fas fa-door-open"></i> Barre Studio</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Chloe Adams" class="schedule-inst-img">
+              <span class="schedule-inst-name">Chloe Adams</span>
+            </div>
+            <div class="schedule-spots"><span></span> 12 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Classic Barre Burn (Mon 9:30 AM)">Book Slot</button>
+          </div>
+          <div class="schedule-row reveal">
+            <div class="schedule-time"><i class="far fa-clock"></i> 12:00 - 01:00 PM</div>
+            <div class="schedule-class">
+              <h4>Core Pilates Reformer</h4>
+              <p>Classical & Contemporary Reformer â€¢ Level 1-2</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Intermediate</span>
+                <span><i class="fas fa-fire"></i> ~380 kcal</span>
+                <span><i class="fas fa-door-open"></i> Reformer Room</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="Elena Rostova" class="schedule-inst-img">
+              <span class="schedule-inst-name">Elena Rostova</span>
+            </div>
+            <div class="schedule-spots"><span></span> 8 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Core Pilates Reformer (Mon 12:00 PM)">Book Slot</button>
+          </div>
+          <div class="schedule-row reveal">
+            <div class="schedule-time"><i class="far fa-clock"></i> 05:30 - 06:30 PM</div>
+            <div class="schedule-class">
+              <h4>VYORA Athletic HIIT</h4>
+              <p>Functional strength & power â€¢ Energetic</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Advanced</span>
+                <span><i class="fas fa-fire"></i> ~580 kcal</span>
+                <span><i class="fas fa-door-open"></i> HIIT Sanctuary</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop" alt="Sarah Jenkins" class="schedule-inst-img">
+              <span class="schedule-inst-name">Sarah Jenkins</span>
+            </div>
+            <div class="schedule-spots limited"><span></span> 2 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="VYORA Athletic HIIT (Mon 5:30 PM)">Book Slot</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tuesday Panel -->
+      <div class="schedule-day-panel" id="tuesday">
+        <div class="schedule-list">
+          <div class="schedule-row">
+            <div class="schedule-time"><i class="far fa-clock"></i> 07:30 - 08:30 AM</div>
+            <div class="schedule-class">
+              <h4>Precision Reformer Flow</h4>
+              <p>Reformer alignment and strength â€¢ Intermediate</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Intermediate</span>
+                <span><i class="fas fa-fire"></i> ~400 kcal</span>
+                <span><i class="fas fa-door-open"></i> Reformer Room</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="Elena Rostova" class="schedule-inst-img">
+              <span class="schedule-inst-name">Elena Rostova</span>
+            </div>
+            <div class="schedule-spots limited"><span></span> 3 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Precision Reformer Flow (Tue 7:30 AM)">Book Slot</button>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time"><i class="far fa-clock"></i> 09:00 - 10:00 AM</div>
+            <div class="schedule-class">
+              <h4>Sound Bath & Meditation</h4>
+              <p>Restorative sound healing & focus â€¢ Calming</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Beginner</span>
+                <span><i class="fas fa-fire"></i> ~150 kcal</span>
+                <span><i class="fas fa-door-open"></i> Meditation Sanctuary</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Maya Lin" class="schedule-inst-img">
+              <span class="schedule-inst-name">Maya Lin</span>
+            </div>
+            <div class="schedule-spots"><span></span> 15 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Sound Bath & Meditation (Tue 9:00 AM)">Book Slot</button>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time"><i class="far fa-clock"></i> 06:00 - 07:00 PM</div>
+            <div class="schedule-class">
+              <h4>Barre & Stretch Fusion</h4>
+              <p>High isometric burn followed by deep relaxation</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Beginner</span>
+                <span><i class="fas fa-fire"></i> ~320 kcal</span>
+                <span><i class="fas fa-door-open"></i> Barre Studio</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Chloe Adams" class="schedule-inst-img">
+              <span class="schedule-inst-name">Chloe Adams</span>
+            </div>
+            <div class="schedule-spots"><span></span> 10 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Barre & Stretch Fusion (Tue 6:00 PM)">Book Slot</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wednesday Panel -->
+      <div class="schedule-day-panel" id="wednesday">
+        <div class="schedule-list">
+          <div class="schedule-row">
+            <div class="schedule-time"><i class="far fa-clock"></i> 07:00 - 08:00 AM</div>
+            <div class="schedule-class">
+              <h4>Sunrise Yoga Fusion</h4>
+              <p>Vinyasa & Mobility â€¢ Morning energizer</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Beginner</span>
+                <span><i class="fas fa-fire"></i> ~350 kcal</span>
+                <span><i class="fas fa-door-open"></i> Studio A</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Chloe Adams" class="schedule-inst-img">
+              <span class="schedule-inst-name">Chloe Adams</span>
+            </div>
+            <div class="schedule-spots"><span></span> 8 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Sunrise Yoga Fusion (Wed 7:00 AM)">Book Slot</button>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time"><i class="far fa-clock"></i> 12:00 - 01:00 PM</div>
+            <div class="schedule-class">
+              <h4>Core Pilates Reformer</h4>
+              <p>Abdominal focus reformer â€¢ Beginner-Friendly</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Beginner</span>
+                <span><i class="fas fa-fire"></i> ~380 kcal</span>
+                <span><i class="fas fa-door-open"></i> Reformer Room</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="Elena Rostova" class="schedule-inst-img">
+              <span class="schedule-inst-name">Elena Rostova</span>
+            </div>
+            <div class="schedule-spots limited"><span></span> 1 spot left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Core Pilates Reformer (Wed 12:00 PM)">Book Slot</button>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time"><i class="far fa-clock"></i> 05:30 - 06:30 PM</div>
+            <div class="schedule-class">
+              <h4>VYORA Athletic HIIT</h4>
+              <p>Functional muscle toning & cardio intervals</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Advanced</span>
+                <span><i class="fas fa-fire"></i> ~580 kcal</span>
+                <span><i class="fas fa-door-open"></i> HIIT Sanctuary</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop" alt="Sarah Jenkins" class="schedule-inst-img">
+              <span class="schedule-inst-name">Sarah Jenkins</span>
+            </div>
+            <div class="schedule-spots"><span></span> 9 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="VYORA Athletic HIIT (Wed 5:30 PM)">Book Slot</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thursday Panel -->
+      <div class="schedule-day-panel" id="thursday">
+        <div class="schedule-list">
+          <div class="schedule-row">
+            <div class="schedule-time"><i class="far fa-clock"></i> 09:30 - 10:30 AM</div>
+            <div class="schedule-class">
+              <h4>Classic Barre Burn</h4>
+              <p>Low-impact muscular definition</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Intermediate</span>
+                <span><i class="fas fa-fire"></i> ~420 kcal</span>
+                <span><i class="fas fa-door-open"></i> Barre Studio</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Chloe Adams" class="schedule-inst-img">
+              <span class="schedule-inst-name">Chloe Adams</span>
+            </div>
+            <div class="schedule-spots"><span></span> 11 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Classic Barre Burn (Thu 9:30 AM)">Book Slot</button>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time"><i class="far fa-clock"></i> 06:00 - 07:00 PM</div>
+            <div class="schedule-class">
+              <h4>Precision Reformer Flow</h4>
+              <p>Alignment-based strength training</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Intermediate</span>
+                <span><i class="fas fa-fire"></i> ~400 kcal</span>
+                <span><i class="fas fa-door-open"></i> Reformer Room</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="Elena Rostova" class="schedule-inst-img">
+              <span class="schedule-inst-name">Elena Rostova</span>
+            </div>
+            <div class="schedule-spots limited"><span></span> 2 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Precision Reformer Flow (Thu 6:00 PM)">Book Slot</button>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time"><i class="far fa-clock"></i> 07:15 - 08:15 PM</div>
+            <div class="schedule-class">
+              <h4>Deep Sound Bath & Breath</h4>
+              <p>Rejuvenating meditation and oxygenation</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Beginner</span>
+                <span><i class="fas fa-fire"></i> ~120 kcal</span>
+                <span><i class="fas fa-door-open"></i> Meditation Sanctuary</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Maya Lin" class="schedule-inst-img">
+              <span class="schedule-inst-name">Maya Lin</span>
+            </div>
+            <div class="schedule-spots"><span></span> 18 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Deep Sound Bath & Breath (Thu 7:15 PM)">Book Slot</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Friday Panel -->
+      <div class="schedule-day-panel" id="friday">
+        <div class="schedule-list">
+          <div class="schedule-row">
+            <div class="schedule-time"><i class="far fa-clock"></i> 07:00 - 08:00 AM</div>
+            <div class="schedule-class">
+              <h4>Sunrise Yoga Fusion</h4>
+              <p>Core awakening yoga flow</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Beginner</span>
+                <span><i class="fas fa-fire"></i> ~350 kcal</span>
+                <span><i class="fas fa-door-open"></i> Studio A</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Chloe Adams" class="schedule-inst-img">
+              <span class="schedule-inst-name">Chloe Adams</span>
+            </div>
+            <div class="schedule-spots"><span></span> 7 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Sunrise Yoga Fusion (Fri 7:00 AM)">Book Slot</button>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time"><i class="far fa-clock"></i> 12:00 - 01:00 PM</div>
+            <div class="schedule-class">
+              <h4>Core Pilates Reformer</h4>
+              <p>Posture realignment reformer session</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Beginner</span>
+                <span><i class="fas fa-fire"></i> ~380 kcal</span>
+                <span><i class="fas fa-door-open"></i> Reformer Room</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="Elena Rostova" class="schedule-inst-img">
+              <span class="schedule-inst-name">Elena Rostova</span>
+            </div>
+            <div class="schedule-spots limited"><span></span> 3 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Core Pilates Reformer (Fri 12:00 PM)">Book Slot</button>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time"><i class="far fa-clock"></i> 05:30 - 06:30 PM</div>
+            <div class="schedule-class">
+              <h4>Deep Restorative Stretch</h4>
+              <p>End of week muscle recovery & relaxation</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Beginner</span>
+                <span><i class="fas fa-fire"></i> ~220 kcal</span>
+                <span><i class="fas fa-door-open"></i> Stretch Studio</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Maya Lin" class="schedule-inst-img">
+              <span class="schedule-inst-name">Maya Lin</span>
+            </div>
+            <div class="schedule-spots"><span></span> 14 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Deep Restorative Stretch (Fri 5:30 PM)">Book Slot</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Saturday Panel -->
+      <div class="schedule-day-panel" id="saturday">
+        <div class="schedule-list">
+          <div class="schedule-row">
+            <div class="schedule-time"><i class="far fa-clock"></i> 09:00 - 10:30 AM</div>
+            <div class="schedule-class">
+              <h4>Weekend Yoga Ceremony</h4>
+              <p>Vinyasa, sound meditation & premium tea ritual</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> All Levels</span>
+                <span><i class="fas fa-fire"></i> ~380 kcal</span>
+                <span><i class="fas fa-door-open"></i> Studio A</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Chloe Adams" class="schedule-inst-img">
+              <span class="schedule-inst-name">Chloe Adams</span>
+            </div>
+            <div class="schedule-spots limited"><span></span> 2 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Weekend Yoga Ceremony (Sat 9:00 AM)">Book Slot</button>
+          </div>
+          <div class="schedule-row">
+            <div class="schedule-time"><i class="far fa-clock"></i> 11:00 AM - 12:00 PM</div>
+            <div class="schedule-class">
+              <h4>VYORA Athletic Masterclass</h4>
+              <p>High intensity functional training</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Advanced</span>
+                <span><i class="fas fa-fire"></i> ~650 kcal</span>
+                <span><i class="fas fa-door-open"></i> HIIT Sanctuary</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop" alt="Sarah Jenkins" class="schedule-inst-img">
+              <span class="schedule-inst-name">Sarah Jenkins</span>
+            </div>
+            <div class="schedule-spots"><span></span> 10 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="VYORA Athletic Masterclass (Sat 11:00 AM)">Book Slot</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sunday Panel -->
+      <div class="schedule-day-panel" id="sunday">
+        <div class="schedule-list">
+          <div class="schedule-row">
+            <div class="schedule-time"><i class="far fa-clock"></i> 10:00 - 11:15 AM</div>
+            <div class="schedule-class">
+              <h4>Sunday Restorative Sound Bath</h4>
+              <p>Gentle stretching, breathing & deep sonic bath</p>
+              <div class="schedule-row-metadata">
+                <span><i class="fas fa-layer-group"></i> Beginner</span>
+                <span><i class="fas fa-fire"></i> ~150 kcal</span>
+                <span><i class="fas fa-door-open"></i> Meditation Sanctuary</span>
+              </div>
+            </div>
+            <div class="schedule-instructor">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Maya Lin" class="schedule-inst-img">
+              <span class="schedule-inst-name">Maya Lin</span>
+            </div>
+            <div class="schedule-spots limited"><span></span> 5 spots left</div>
+            <button class="btn btn-secondary open-booking-btn" data-class="Sunday Restorative Sound Bath (Sun 10:00 AM)">Book Slot</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- First-Time Class Preparation FAQ Accordion Section -->
+  <section class="section" style="background-color: var(--color-cream); border-top: 1px solid var(--color-beige);" id="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Preparation</span>
+        <h2 class="section-title">First-Time <span>FAQ & Guide</span></h2>
+        <p class="section-desc">Everything you need to know before stepping inside our luxury boutique wellness sanctuary.</p>
+      </div>
+
+      <div class="faq-accordion reveal">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>What should I wear and bring for my first class?</span>
+            <span class="faq-icon-box"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-answer">
+              Please wear comfortable, form-fitting activewear that allows you to move freely. For **Precision Pilates Reformer** sessions, **non-slip grip socks** are mandatory for safety and hygiene. If you do not have a pair, premium grip socks are available for purchase at our concierge desk. We provide organic luxury towels, mats, and structured cellular hydration, so you do not need to bring yours.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>How early should I arrive before my session?</span>
+            <span class="faq-icon-box"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-answer">
+              We highly recommend first-time members arrive **15 minutes early**. This gives you ample time to check in, tour the luxury changing rooms, meet your certified master instructor, adjust the reformer spring settings, and receive custom posture or alignment assessment modifications. Please note that for safety and focus, late entries are not permitted once a session has commenced.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>What is the studio cancellation and waitlist policy?</span>
+            <span class="faq-icon-box"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-answer">
+              Since VYORA classes are capped strictly at **12 members** to maintain boutique customization, we operate a **12-hour cancellation policy**. If you cancel your booking more than 12 hours in advance, your class credit will be fully restored. Cancellations made within the 12-hour window are forfeit. If a class is full, you can join the waitlist; our automated system will notify you immediately via text/email once a slot opens.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>Can I attend VYORA classes if I have physical injuries or limitations?</span>
+            <span class="faq-icon-box"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-answer">
+              Absolutely. Our master coaches are fully trained in orthopedics, physical alignment modification, and rehabilitation science. Capping classes at 12 members ensures your coach can closely watch your movements and provide custom modifications. Please notify your instructor of any injuries, spinal limitations, or pregnancy before the session starts, or note them when booking.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo footer-logo">
+            <div class="logo-icon"></div>
+            <div class="logo-text">VYORA</div>
+          </a>
+          <p class="footer-about-text">
+            A premium boutique wellness oasis crafted to elevate physical strength and mental silence. Experience movement as self-care.
+          </p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Home 2</a></li>
+            <li><a href="about.html">About Studio</a></li>
+            <li><a href="programs.html">Fitness Pillars</a></li>
+            <li><a href="trainers.html">Meet Instructors</a></li>
+            <li><a href="schedule.html">Class Schedule</a></li>
+            <li><a href="membership.html">Sanctuary Rates</a></li>
+            <li><a href="gallery.html">Photo Gallery</a></li>
+            <li><a href="blog.html">VYORA Gazette</a></li>
+            <li><a href="dashboard.html">My Dashboard</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Our Pillars</h3>
+          <ul class="footer-links">
+            <li><a href="programs.html">Precision Pilates</a></li>
+            <li><a href="programs.html">Barre Conditioning</a></li>
+            <li><a href="programs.html">Yoga Vinyasa Flow</a></li>
+            <li><a href="programs.html">Sound Bath Meditation</a></li>
+            <li><a href="programs.html">VYORA Athletic HIIT</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Studio Oasis</h3>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>128 Serenity Boulevard, Suite B<br>Beverly Hills, CA 90210</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+1 (310) 555-0190</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>oasis@vyorafitness.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 VYORA Wellness Brand. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Booking Modal Structure -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close Modal"><i class="fas fa-times"></i></button>
+      
+      <!-- Default Form -->
+      <div id="modal-form-content">
+        <h2 class="modal-title">Book a <span>Trial Session</span></h2>
+        <p class="modal-desc">Enjoy a complimentary trial class. Fill in your details, and our wellness concierge will contact you within 24 hours.</p>
+        
+        <form class="modal-form" id="booking-form">
+          <div class="form-group">
+            <label for="booking-name" class="form-label">Full Name</label>
+            <input type="text" id="booking-name" class="form-input" placeholder="e.g. Elena Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-email" class="form-label">Email Address</label>
+            <input type="email" id="booking-email" class="form-input" placeholder="e.g. elena@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-class" class="form-label">Select Pillar / Session</label>
+            <select id="booking-class" class="form-input" required>
+              <option value="" disabled selected>-- Select a Session --</option>
+              <option value="Sunrise Yoga Fusion">Sunrise Yoga Fusion (Yoga)</option>
+              <option value="Precision Pilates">Precision Pilates (Reformer)</option>
+              <option value="Classic Barre Burn">Classic Barre Burn (Barre)</option>
+              <option value="Deep Sound Bath & Breath">Sound Bath & Meditation (Mindful)</option>
+              <option value="VYORA Athletic HIIT">VYORA Athletic HIIT (Strength)</option>
+              <option value="Deep Restorative Stretch">Deep Restorative Stretch (Recovery)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="booking-notes" class="form-label">Notes (e.g. Injuries, level, goals)</label>
+            <textarea id="booking-notes" class="form-input" placeholder="Let us know how we can tailor your experience..." rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary modal-btn">Send Booking Request</button>
+        </form>
+      </div>
+
+      <!-- Success Screen -->
+      <div id="modal-success-content" class="modal-success">
+        <div class="modal-success-icon"><i class="fas fa-check"></i></div>
+        <h3 class="modal-success-title">Booking Requested</h3>
+        <p class="modal-success-desc">Thank you for choosing VYORA. A wellness coordinator has received your details and will call or email you shortly to confirm your complimentary slot.</p>
+        <button class="btn btn-primary" id="modal-success-close-btn" style="width: 100%;">Return to Site</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Account Auth Modals -->\n\n    <!-- User Account Auth Modals -->
+    <div class="auth-overlay" id="authModal">
+      <div class="auth-modal-box">
+        <button class="auth-close" id="auth-close" aria-label="Close Form"><i class="fas fa-times"></i></button>
+
+        <!-- Login View -->
+        <div id="login-form-content">
+          <h2 class="auth-title">Welcome <span>Back</span></h2>
+          <p class="auth-subtitle">Enter your sanctuary details to access your dashboard portal.</p>
+          <form class="modal-form" id="login-form">
+            <div class="form-group">
+              <label for="login-email" class="form-label">Email Address</label>
+              <input type="email" id="login-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label for="login-password" class="form-label">Password</label>
+              <div class="password-input-wrapper">
+                <input type="password" id="login-password" class="form-input" placeholder="••••••••" required style="width: 100%;">
+                <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <div class="form-help">
+                <a href="#" class="forgot-password-link" id="forgot-password-btn">Forgot Password?</a>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Enter Portal</button>
+            <p style="font-size: 0.82rem; text-align: center; margin-top: 20px; color: var(--color-gray);">
+              New to VYORA? <a href="#" id="go-to-signup" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Create Sanctuary Account</a>
+            </p>
+          </form>
+        </div>
+
+        <!-- Sign Up View -->
+        <div id="signup-form-content" style="display: none;">
+          <h2 class="auth-title">Create <span>Sanctuary Account</span></h2>
+          <p class="auth-subtitle">Join VYORA boutique studio and begin your premium journey.</p>
+          <form class="modal-form" id="signup-form">
+            <div class="form-group">
+              <label for="signup-name" class="form-label">Full Name</label>
+              <input type="text" id="signup-name" class="form-input" placeholder="Elena Smith" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label for="signup-email" class="form-label">Email Address</label>
+              <input type="email" id="signup-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label for="signup-password" class="form-label">Password</label>
+              <div class="password-input-wrapper">
+                <input type="password" id="signup-password" class="form-input" placeholder="Min. 8 characters" required style="width: 100%;">
+                <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <!-- Password Strength meter box -->
+              <div style="height: 4px; background-color: var(--color-beige); border-radius: 2px; margin-top: 8px; overflow: hidden; position: relative;">
+                <div id="password-strength-bar" style="height: 100%; width: 0%; background-color: #E74C3C; transition: all 0.3s ease;"></div>
+              </div>
+              <span id="password-strength-text" style="font-size: 0.72rem; color: var(--color-gray); margin-top: 4px; display: block;">Strength: Weak</span>
+            </div>
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Register Sanctuary Account</button>
+            <p style="font-size: 0.82rem; text-align: center; margin-top: 20px; color: var(--color-gray);">
+              Already have an account? <a href="#" id="go-to-login" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Sign In</a>
+            </p>
+          </form>
+        </div>
+
+        <!-- Forgot Password View -->
+        <div id="forgot-password-content" style="display: none;">
+          <h2 class="auth-title">Restore <span>Sanctuary Details</span></h2>
+          <p class="auth-subtitle">Enter your email and we'll send you instructions to recover your account.</p>
+          <form class="modal-form" id="forgot-password-form">
+            <div class="form-group">
+              <label for="forgot-email" class="form-label">Email Address</label>
+              <input type="email" id="forgot-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+            </div>
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Send Reset Link</button>
+            <p style="font-size: 0.82rem; text-align: center; margin-top: 20px; color: var(--color-gray);">
+              Remember your details? <a href="#" id="go-to-login-from-forgot" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Sign In</a>
+            </p>
+          </form>
+          <!-- Success state inside forgot password -->
+          <div id="forgot-success-content" style="display: none; text-align: center; padding: 20px 0;">
+            <div style="font-size: 3rem; color: #2ECC71; margin-bottom: 16px;"><i class="fas fa-check-circle"></i></div>
+            <h3 style="font-family: var(--font-heading); font-weight: 700; margin-bottom: 8px;">Reset Link Sent</h3>
+            <p style="font-size: 0.9rem; color: var(--color-gray); margin-bottom: 20px;">We have sent a link to your email to restore your sanctuary details.</p>
+            <button type="button" class="btn btn-primary" id="forgot-success-back-btn" style="width: 100%;">Back to Sign In</button>
+          </div>
+        </div>
+      </div>
+    </div>\n\n    <!-- JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanctuary Portal | VYORA Booking</title>
+  <meta name="description" content="Access your VYORA member dashboard portal. Sign in or register to manage your weekly schedules and membership.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Floating Background Shapes -->
+  <div class="floating-shape shape-circle shape-3"></div>
+
+  <!-- Header Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="logo" id="nav-logo">
+        <div class="logo-icon"></div>
+        <div class="logo-text">VYORA</div>
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="trainers.html" class="nav-link">Trainers</a>
+        <a href="schedule.html" class="nav-link">Schedule</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+          <span class="theme-toggle-track">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+          </span>
+          <span class="theme-toggle-thumb">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+          </span>
+        </button>
+
+        <!-- User Account Profile Dropdown -->
+        <div class="user-menu-container" id="user-menu-container">
+          <button class="user-profile-btn" id="user-profile-btn" aria-label="User Account">
+            <i class="far fa-user-circle"></i>
+          </button>
+          <div class="user-dropdown" id="user-dropdown">
+            <div class="user-dropdown-header">
+              <span class="user-name">Elena Rostova</span>
+              <span class="user-tier">Premium Member</span>
+            </div>
+            <hr class="user-dropdown-divider">
+            <div class="user-dropdown-item login-signup-line">
+              <i class="fas fa-sign-in-alt"></i>
+              <a href="#" id="nav-login-btn">Login</a>
+              <span class="login-signup-slash">/</span>
+              <a href="#" id="nav-signup-btn">Sign Up</a>
+            </div>
+            <a href="dashboard.html" class="user-dropdown-item"><i class="fas fa-columns"></i> User Dashboard</a>
+            <a href="admin.html" class="user-dropdown-item"><i class="fas fa-cog"></i> Admin Dashboard</a>
+          </div>
+        </div>
+
+        <button class="btn btn-primary open-booking-btn" id="nav-booking-btn">Book Trial Class</button>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="home2.html" class="mobile-nav-link">Home 2</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="programs.html" class="mobile-nav-link">Programs</a>
+    <a href="trainers.html" class="mobile-nav-link">Trainers</a>
+    <a href="schedule.html" class="mobile-nav-link">Schedule</a>
+    <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-cta">
+      <button class="btn btn-primary open-booking-btn toggle-mobile-menu" style="width: 100%;">Book Trial Class</button>
+    </div>
+  </nav>
+
+  <!-- Interactive Dedicated Login Section -->
+  <section class="auth-page-section">
+    <div class="container">
+      <div class="auth-page-container">
+        
+        <!-- Left Side: Hero and Branding -->
+        <div class="auth-page-hero">
+          <div class="auth-page-hero-overlay"></div>
+          <div class="auth-page-hero-content">
+            <span class="auth-page-hero-tag">AURA COLLECTIVE</span>
+            <h2 class="auth-page-hero-title">Step Into Your <span>Sanctuary</span></h2>
+          </div>
+          <p class="auth-page-hero-quote">
+            "VYORA is more than a boutique studio. It is a luxurious landscape designed to explore physical longevity, mindful breathing, and the silence of self-care. Enter the sanctuary and align with your potential."
+          </p>
+        </div>
+
+        <!-- Right Side: Interactive Card -->
+        <div class="auth-page-form-wrapper">
+          
+          <!-- Tab Navigation -->
+          <div class="auth-tabs" id="page-auth-tabs">
+            <button class="auth-tab active" data-tab="login">Login</button>
+            <button class="auth-tab" data-tab="signup">Sign Up</button>
+          </div>
+
+          <!-- Login View -->
+          <div id="login-form-content">
+            <h3 style="font-family: var(--font-heading); font-weight: 700; font-size: 1.6rem; margin-bottom: 8px;">Welcome Back</h3>
+            <p style="font-size: 0.9rem; color: var(--color-gray); margin-bottom: 24px;">Please enter your credentials to open your sanctuary dashboard.</p>
+            
+            <form class="modal-form" id="login-form">
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label for="login-email" class="form-label">Email Address</label>
+                <input type="email" id="login-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+              </div>
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label for="login-password" class="form-label">Password</label>
+                <div class="password-input-wrapper">
+                  <input type="password" id="login-password" class="form-input" placeholder="••••••••" required style="width: 100%;">
+                  <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                    <i class="far fa-eye"></i>
+                  </button>
+                </div>
+                <div class="form-help">
+                  <a href="#" class="forgot-password-link" id="page-forgot-password-btn">Forgot Password?</a>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Enter Portal</button>
+              <p style="font-size: 0.85rem; text-align: center; margin-top: 24px; color: var(--color-gray);">
+                New to VYORA? <a href="#" id="page-go-to-signup" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Create sanctuary account</a>
+              </p>
+            </form>
+          </div>
+
+          <!-- Sign Up View -->
+          <div id="signup-form-content" style="display: none;">
+            <h3 style="font-family: var(--font-heading); font-weight: 700; font-size: 1.6rem; margin-bottom: 8px;">Create Sanctuary Account</h3>
+            <p style="font-size: 0.9rem; color: var(--color-gray); margin-bottom: 24px;">Join the VYORA boutique collective and begin your premium journey.</p>
+            
+            <form class="modal-form" id="signup-form">
+              <div class="form-group" style="margin-bottom: 16px;">
+                <label for="signup-name" class="form-label">Full Name</label>
+                <input type="text" id="signup-name" class="form-input" placeholder="Elena Smith" required style="width: 100%;">
+              </div>
+              <div class="form-group" style="margin-bottom: 16px;">
+                <label for="signup-email" class="form-label">Email Address</label>
+                <input type="email" id="signup-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+              </div>
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label for="signup-password" class="form-label">Password</label>
+                <div class="password-input-wrapper">
+                  <input type="password" id="signup-password" class="form-input" placeholder="Min. 8 characters" required style="width: 100%;">
+                  <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                    <i class="far fa-eye"></i>
+                  </button>
+                </div>
+                <!-- Password Strength meter box -->
+                <div style="height: 4px; background-color: var(--color-beige); border-radius: 2px; margin-top: 8px; overflow: hidden; position: relative;">
+                  <div id="password-strength-bar" style="height: 100%; width: 0%; background-color: #E74C3C; transition: all 0.3s ease;"></div>
+                </div>
+                <span id="password-strength-text" style="font-size: 0.72rem; color: var(--color-gray); margin-top: 4px; display: block;">Strength: Weak</span>
+              </div>
+              <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Register Account</button>
+              <p style="font-size: 0.85rem; text-align: center; margin-top: 24px; color: var(--color-gray);">
+                Already have an account? <a href="#" id="page-go-to-login" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Sign In</a>
+              </p>
+            </form>
+          </div>
+
+          <!-- Forgot Password View -->
+          <div id="forgot-password-content" style="display: none;">
+            <h3 style="font-family: var(--font-heading); font-weight: 700; font-size: 1.6rem; margin-bottom: 8px;">Restore Details</h3>
+            <p style="font-size: 0.9rem; color: var(--color-gray); margin-bottom: 24px;">Enter your registered email address and we'll send password recovery instructions.</p>
+            
+            <form class="modal-form" id="forgot-password-form">
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label for="forgot-email" class="form-label">Email Address</label>
+                <input type="email" id="forgot-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+              </div>
+              <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Send Reset Link</button>
+              <p style="font-size: 0.85rem; text-align: center; margin-top: 24px; color: var(--color-gray);">
+                Remember details? <a href="#" id="page-go-to-login-from-forgot" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Sign In</a>
+              </p>
+            </form>
+
+            <!-- Success state inside forgot password -->
+            <div id="forgot-success-content" style="display: none; text-align: center; padding: 20px 0;">
+              <div style="font-size: 3rem; color: #2ECC71; margin-bottom: 16px;"><i class="fas fa-check-circle"></i></div>
+              <h3 style="font-family: var(--font-heading); font-weight: 700; margin-bottom: 8px;">Reset Link Sent</h3>
+              <p style="font-size: 0.9rem; color: var(--color-gray); margin-bottom: 24px;">We have sent a link to your email to restore your sanctuary details.</p>
+              <button type="button" class="btn btn-primary" id="forgot-success-back-btn" style="width: 100%;">Back to Sign In</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo footer-logo">
+            <div class="logo-icon"></div>
+            <div class="logo-text">VYORA</div>
+          </a>
+          <p class="footer-about-text">
+            A premium boutique wellness oasis crafted to elevate physical strength and mental silence. Experience movement as self-care.
+          </p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Home 2</a></li>
+            <li><a href="about.html">About Studio</a></li>
+            <li><a href="programs.html">Fitness Pillars</a></li>
+            <li><a href="trainers.html">Meet Instructors</a></li>
+            <li><a href="schedule.html">Class Schedule</a></li>
+            <li><a href="membership.html">Sanctuary Rates</a></li>
+            <li><a href="gallery.html">Photo Gallery</a></li>
+            <li><a href="blog.html">VYORA Gazette</a></li>
+            <li><a href="dashboard.html">My Dashboard</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Our Pillars</h3>
+          <ul class="footer-links">
+            <li><a href="programs.html">Precision Pilates</a></li>
+            <li><a href="programs.html">Barre Conditioning</a></li>
+            <li><a href="programs.html">Yoga Vinyasa Flow</a></li>
+            <li><a href="programs.html">Sound Bath Meditation</a></li>
+            <li><a href="programs.html">VYORA Athletic HIIT</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Studio Oasis</h3>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>128 Serenity Boulevard, Suite B<br>Beverly Hills, CA 90210</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+1 (310) 555-0190</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>oasis@vyorafitness.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 VYORA Wellness Brand. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Booking Modal Structure -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close Modal"><i class="fas fa-times"></i></button>
+
+      <!-- Default Form -->
+      <div id="modal-form-content">
+        <h2 class="modal-title">Book a <span>Trial Session</span></h2>
+        <p class="modal-desc">Enjoy a complimentary trial class. Fill in your details, and our wellness concierge will contact you within 24 hours.</p>
+
+        <form class="modal-form" id="booking-form">
+          <div class="form-group">
+            <label for="booking-name" class="form-label">Full Name</label>
+            <input type="text" id="booking-name" class="form-input" placeholder="e.g. Elena Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-email" class="form-label">Email Address</label>
+            <input type="email" id="booking-email" class="form-input" placeholder="e.g. elena@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-class" class="form-label">Select Pillar / Session</label>
+            <select id="booking-class" class="form-input" required>
+              <option value="" disabled selected>-- Select a Session --</option>
+              <option value="Sunrise Yoga Fusion">Sunrise Yoga Fusion (Yoga)</option>
+              <option value="Precision Pilates">Precision Pilates (Reformer)</option>
+              <option value="Classic Barre Burn">Classic Barre Burn (Barre)</option>
+              <option value="Deep Sound Bath & Breath">Sound Bath & Meditation (Mindful)</option>
+              <option value="VYORA Athletic HIIT">VYORA Athletic HIIT (Strength)</option>
+              <option value="Deep Restorative Stretch">Deep Restorative Stretch (Recovery)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="booking-notes" class="form-label">Notes (e.g. Injuries, level, goals)</label>
+            <textarea id="booking-notes" class="form-input" placeholder="Let us know how we can tailor your experience..." rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary modal-btn">Send Booking Request</button>
+        </form>
+      </div>
+
+      <!-- Success Screen -->
+      <div id="modal-success-content" class="modal-success">
+        <div class="modal-success-icon"><i class="fas fa-check"></i></div>
+        <h3 class="modal-success-title">Booking Requested</h3>
+        <p class="modal-success-desc">Thank you for choosing VYORA. A wellness coordinator has received your details and will call or email you shortly to confirm your complimentary slot.</p>
+        <button class="btn btn-primary" id="modal-success-close-btn" style="width: 100%;">Return to Site</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="main.js"></script>
+  
+  <!-- Standalone Page Swapping Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.auth-tab');
+      const loginPanel = document.getElementById('login-form-content');
+      const signupPanel = document.getElementById('signup-form-content');
+      const forgotPanel = document.getElementById('forgot-password-content');
+      
+      const forgotBtn = document.getElementById('page-forgot-password-btn');
+      const backToLoginFromForgot = document.getElementById('page-go-to-login-from-forgot');
+      const signupRedirectLink = document.getElementById('page-go-to-signup');
+      const loginRedirectLink = document.getElementById('page-go-to-login');
+      
+      const forgotPasswordForm = document.getElementById('forgot-password-form');
+      const forgotSuccessContent = document.getElementById('forgot-success-content');
+      const forgotSuccessBackBtn = document.getElementById('forgot-success-back-btn');
+
+      const showPanel = (view) => {
+        // Hide all panels
+        loginPanel.style.display = 'none';
+        signupPanel.style.display = 'none';
+        forgotPanel.style.display = 'none';
+
+        // Remove active state from tabs
+        tabs.forEach(tab => tab.classList.remove('active'));
+
+        // Reset forms success visibility if switching
+        if (view !== 'forgot') {
+          if (forgotPasswordForm) forgotPasswordForm.style.display = 'block';
+          if (forgotSuccessContent) forgotSuccessContent.style.display = 'none';
+        }
+
+        if (view === 'login') {
+          loginPanel.style.display = 'block';
+          const tab = document.querySelector('.auth-tab[data-tab="login"]');
+          if (tab) tab.classList.add('active');
+        } else if (view === 'signup') {
+          signupPanel.style.display = 'block';
+          const tab = document.querySelector('.auth-tab[data-tab="signup"]');
+          if (tab) tab.classList.add('active');
+        } else if (view === 'forgot') {
+          forgotPanel.style.display = 'block';
+        }
+      };
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          showPanel(tab.getAttribute('data-tab'));
+        });
+      });
+
+      if (forgotBtn) {
+        forgotBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          showPanel('forgot');
+        });
+      }
+
+      if (backToLoginFromForgot) {
+        backToLoginFromForgot.addEventListener('click', (e) => {
+          e.preventDefault();
+          showPanel('login');
+        });
+      }
+
+      if (signupRedirectLink) {
+        signupRedirectLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          showPanel('signup');
+        });
+      }
+
+      if (loginRedirectLink) {
+        loginRedirectLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          showPanel('login');
+        });
+      }
+
+      if (forgotSuccessBackBtn) {
+        forgotSuccessBackBtn.addEventListener('click', () => {
+          showPanel('login');
+        });
+      }
+
+      // Check URL hash or query params to load active tab on mount
+      const params = new URLSearchParams(window.location.search);
+      const viewParam = params.get('view');
+      const hash = window.location.hash;
+
+      if (viewParam === 'signup' || hash === '#signup') {
+        showPanel('signup');
+      } else if (viewParam === 'forgot' || hash === '#forgot') {
+        showPanel('forgot');
+      } else {
+        showPanel('login');
+      }
+    });
+  </script>
+</body>
+
+</html>

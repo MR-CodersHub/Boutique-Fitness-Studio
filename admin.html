@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Sanctuary Command Center | VYORA Admin Dashboard</title>
+  <meta name="description" content="VYORA system administrator console. Monitor active bookings, manage wellness schedules, approve membership tiers, and view revenue analytics.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+
+
+  <!-- Mobile Dashboard Top Bar -->
+  <div class="dash-mobile-topbar" id="dash-mobile-topbar">
+    <a href="index.html" class="dash-mobile-logo">
+      <div class="logo-icon"></div>
+      <div class="logo-text">VYORA</div>
+    </a>
+    <button class="dash-hamburger" id="dash-hamburger" aria-label="Open Sidebar Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Sidebar Backdrop Overlay -->
+  <div class="dash-backdrop" id="dash-backdrop"></div>
+
+  <!-- Main Sidebar layout Grid -->
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar navigation -->
+    <aside class="dash-sidebar" id="dash-sidebar">
+      <button class="dash-sidebar-close" id="dash-sidebar-close" aria-label="Close Sidebar"><i class="fas fa-times"></i></button>
+      <div class="dash-sidebar-header">
+        <div class="dash-sidebar-user">Elena Rostova</div>
+        <div class="dash-sidebar-role">Studio Administrator</div>
+      </div>
+
+      <a href="#" class="dash-sidebar-link active" data-pane="admin-overview"><i class="fas fa-chart-line"></i> Overview</a>
+      <a href="#" class="dash-sidebar-link" data-pane="admin-members"><i class="fas fa-users"></i> Manage Members</a>
+      <a href="#" class="dash-sidebar-link" data-pane="admin-approvals"><i class="fas fa-check-circle"></i> Approvals <span class="status-badge pending" id="admin-pending-badge-count" style="margin-left: auto; padding: 2px 6px; font-size: 0.65rem;">4</span></a>
+      <a href="#" class="dash-sidebar-link" data-pane="admin-scheduler"><i class="fas fa-calendar-plus"></i> Class Scheduler</a>
+      <a href="#" class="dash-sidebar-link" data-pane="admin-analytics"><i class="fas fa-chart-pie"></i> Revenue Overview</a>
+      <a href="index.html" class="dash-sidebar-link logout-link"><i class="fas fa-sign-out-alt"></i> Exit Panel</a>
+    </aside>
+
+    <!-- Main Content Panel Window -->
+    <main class="dash-main-content">
+
+      <!-- PANE 1: Overview Dashboard -->
+      <div class="dash-pane active" id="admin-overview">
+        <div style="margin-bottom: 24px;">
+          <span class="user-tier">Real-Time Performance</span>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">Sanctuary System Metrics</h2>
+        </div>
+
+        <!-- SaaS Admin Stats Grid -->
+        <div class="admin-stats-grid">
+          <div class="admin-card">
+            <div>
+              <div class="admin-card-lbl">Active Members</div>
+              <div class="admin-card-val" id="admin-active-members">1,248</div>
+            </div>
+            <div class="admin-card-icon"><i class="fas fa-user-friends"></i></div>
+          </div>
+          <div class="admin-card">
+            <div>
+              <div class="admin-card-lbl">Monthly Revenue</div>
+              <div class="admin-card-val">$42,150</div>
+            </div>
+            <div class="admin-card-icon" style="background-color: rgba(46,204,113,0.06); color: #2ECC71;"><i class="fas fa-dollar-sign"></i></div>
+          </div>
+          <div class="admin-card">
+            <div>
+              <div class="admin-card-lbl">Pending Bookings</div>
+              <div class="admin-card-val" id="admin-pending-bookings-stat">24</div>
+            </div>
+            <div class="admin-card-icon" style="background-color: rgba(241,196,15,0.06); color: #F1C40F;"><i class="fas fa-clock"></i></div>
+          </div>
+          <div class="admin-card">
+            <div>
+              <div class="admin-card-lbl">Studio Occupancy</div>
+              <div class="admin-card-val">88%</div>
+            </div>
+            <div class="admin-card-icon" style="background-color: rgba(155,89,182,0.06); color: #9B59B6;"><i class="fas fa-building"></i></div>
+          </div>
+        </div>
+
+        <!-- Analytics Ticker & Table Row -->
+        <div class="dash-responsive-row uneven-12-1" style="margin-top: 30px;">
+          
+          <!-- Recent bookings approved log table -->
+          <div class="dash-card">
+            <h3 class="hours-heading" style="font-size: 1.15rem; margin-bottom: 20px;">System Member Registers</h3>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Member Name</th>
+                    <th>Membership Tier</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Elena Rostova</td>
+                    <td>Oasis VIP</td>
+                    <td><span class="status-badge approved">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>Marcus Vance</td>
+                    <td>Sanctuary Access</td>
+                    <td><span class="status-badge approved">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>Seraphina Wilde</td>
+                    <td>Restoration Flow</td>
+                    <td><span class="status-badge pending">Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td>Amara Kaan</td>
+                    <td>Oasis VIP</td>
+                    <td><span class="status-badge suspended">Suspended</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Weekly Occupancy Chart -->
+          <div class="dash-card">
+            <h3 class="hours-heading" style="font-size: 1.15rem; margin-bottom: 20px;">Pillar Occupancy Rates</h3>
+            <p style="font-size: 0.88rem; color: var(--color-gray); margin-bottom: 20px;">Boutique occupancy averages by wellness disciplines.</p>
+            
+            <div class="admin-chart-container">
+              <!-- Bar 1 -->
+              <div class="admin-chart-row">
+                <span class="admin-chart-lbl">Pilates Flow</span>
+                <div class="admin-chart-bar-bg">
+                  <div class="admin-chart-bar-fill" style="width: 95%;"></div>
+                </div>
+                <span class="admin-chart-val">95%</span>
+              </div>
+              <!-- Bar 2 -->
+              <div class="admin-chart-row">
+                <span class="admin-chart-lbl">Barre Burn</span>
+                <div class="admin-chart-bar-bg">
+                  <div class="admin-chart-bar-fill" style="width: 72%;"></div>
+                </div>
+                <span class="admin-chart-val">72%</span>
+              </div>
+              <!-- Bar 3 -->
+              <div class="admin-chart-row">
+                <span class="admin-chart-lbl">Yoga Vinyasa</span>
+                <div class="admin-chart-bar-bg">
+                  <div class="admin-chart-bar-fill" style="width: 88%;"></div>
+                </div>
+                <span class="admin-chart-val">88%</span>
+              </div>
+              <!-- Bar 4 -->
+              <div class="admin-chart-row">
+                <span class="admin-chart-lbl">HIIT Strength</span>
+                <div class="admin-chart-bar-bg">
+                  <div class="admin-chart-bar-fill" style="width: 60%;"></div>
+                </div>
+                <span class="admin-chart-val">60%</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PANE 2: Manage Members -->
+      <div class="dash-pane" id="admin-members">
+        <div style="margin-bottom: 24px;">
+          <span class="user-tier">Full Roster</span>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">Member Management</h2>
+        </div>
+
+        <div class="dash-card">
+          <div class="table-responsive">
+            <table class="admin-table" id="admin-roster-table">
+              <thead>
+                <tr>
+                  <th>Client Name</th>
+                  <th>Client Email</th>
+                  <th>Joined Date</th>
+                  <th>Registered Plan</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Elena Rostova</td>
+                  <td>elena@vyorafitness.com</td>
+                  <td>Jan 12, 2026</td>
+                  <td>Oasis VIP</td>
+                  <td><span class="status-badge approved">Active</span></td>
+                </tr>
+                <tr>
+                  <td>Marcus Vance</td>
+                  <td>marcus@example.com</td>
+                  <td>Feb 18, 2026</td>
+                  <td>Sanctuary Access</td>
+                  <td><span class="status-badge approved">Active</span></td>
+                </tr>
+                <tr>
+                  <td>Maya Lin</td>
+                  <td>maya@example.com</td>
+                  <td>Mar 05, 2026</td>
+                  <td>Oasis VIP</td>
+                  <td><span class="status-badge approved">Active</span></td>
+                </tr>
+                <tr>
+                  <td>Seraphina Wilde</td>
+                  <td>seraphina@example.com</td>
+                  <td>May 10, 2026</td>
+                  <td>Restoration Flow</td>
+                  <td><span class="status-badge pending">Pending</span></td>
+                </tr>
+                <tr>
+                  <td>Amara Kaan</td>
+                  <td>amara@example.com</td>
+                  <td>Apr 20, 2026</td>
+                  <td>Oasis VIP</td>
+                  <td><span class="status-badge suspended">Suspended</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE 3: Approvals Log -->
+      <div class="dash-pane" id="admin-approvals">
+        <div style="margin-bottom: 24px;">
+          <span class="user-tier">Concierge Desk</span>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">Pending Trial Requests</h2>
+        </div>
+
+        <div class="dash-card">
+          <h3 class="hours-heading" style="font-size: 1.15rem; margin-bottom: 20px;">Awaiting Manual Approvals</h3>
+          
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Applicant</th>
+                  <th>Contact Email</th>
+                  <th>Requested Session</th>
+                  <th>Special Notes</th>
+                  <th style="text-align: center;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-approvals-feed-body">
+                <!-- Approval Request 1 -->
+                <tr id="admin-approval-row-1">
+                  <td>Jessica Sterling</td>
+                  <td>jessica@example.com</td>
+                  <td>Sunrise Yoga Fusion (Mon 7:00 AM)</td>
+                  <td>Recovery from ankle sprain</td>
+                  <td style="display: flex; gap: 10px; justify-content: center;">
+                    <button class="btn btn-primary admin-approve-btn" data-row-id="admin-approval-row-1" style="padding: 6px 12px; font-size: 0.75rem;">Approve</button>
+                    <button class="btn btn-secondary admin-reject-btn" data-row-id="admin-approval-row-1" style="padding: 6px 12px; font-size: 0.75rem; border-color: #E74C3C; color: #E74C3C;">Reject</button>
+                  </td>
+                </tr>
+
+                <!-- Approval Request 2 -->
+                <tr id="admin-approval-row-2">
+                  <td>Rebecca Stone</td>
+                  <td>rebecca@example.com</td>
+                  <td>Precision Reformer Flow (Tue 7:30 AM)</td>
+                  <td>Intermediate, focus on alignment</td>
+                  <td style="display: flex; gap: 10px; justify-content: center;">
+                    <button class="btn btn-primary admin-approve-btn" data-row-id="admin-approval-row-2" style="padding: 6px 12px; font-size: 0.75rem;">Approve</button>
+                    <button class="btn btn-secondary admin-reject-btn" data-row-id="admin-approval-row-2" style="padding: 6px 12px; font-size: 0.75rem; border-color: #E74C3C; color: #E74C3C;">Reject</button>
+                  </td>
+                </tr>
+
+                <!-- Approval Request 3 -->
+                <tr id="admin-approval-row-3">
+                  <td>Cynthia Vance</td>
+                  <td>cynthia@example.com</td>
+                  <td>Deep Sound Bath & Breath (Thu 7:15 PM)</td>
+                  <td>None</td>
+                  <td style="display: flex; gap: 10px; justify-content: center;">
+                    <button class="btn btn-primary admin-approve-btn" data-row-id="admin-approval-row-3" style="padding: 6px 12px; font-size: 0.75rem;">Approve</button>
+                    <button class="btn btn-secondary admin-reject-btn" data-row-id="admin-approval-row-3" style="padding: 6px 12px; font-size: 0.75rem; border-color: #E74C3C; color: #E74C3C;">Reject</button>
+                  </td>
+                </tr>
+
+                <!-- Approval Request 4 -->
+                <tr id="admin-approval-row-4">
+                  <td>Amelia Rose</td>
+                  <td>amelia@example.com</td>
+                  <td>VYORA Athletic HIIT (Wed 5:30 PM)</td>
+                  <td>Wants high cardio output training</td>
+                  <td style="display: flex; gap: 10px; justify-content: center;">
+                    <button class="btn btn-primary admin-approve-btn" data-row-id="admin-approval-row-4" style="padding: 6px 12px; font-size: 0.75rem;">Approve</button>
+                    <button class="btn btn-secondary admin-reject-btn" data-row-id="admin-approval-row-4" style="padding: 6px 12px; font-size: 0.75rem; border-color: #E74C3C; color: #E74C3C;">Reject</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Empty approvals message (hidden by default) -->
+          <div id="admin-approvals-empty-warning" style="display: none; text-align: center; padding: 40px 10px;">
+            <i class="fas fa-check-double" style="font-size: 2.2rem; color: var(--color-beige); margin-bottom: 12px;"></i>
+            <p style="font-size: 1rem; color: var(--color-gray);">All pending trial bookings have been processed. Great work!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE 4: Class Scheduler -->
+      <div class="dash-pane" id="admin-scheduler">
+        <div style="margin-bottom: 24px;">
+          <span class="user-tier">Add Timetables</span>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">Class Scheduling Editor</h2>
+        </div>
+
+        <div class="dash-responsive-row uneven-1-12">
+          <!-- Editor Form -->
+          <div class="dash-card">
+            <h3 class="hours-heading" style="font-size: 1.15rem; margin-bottom: 20px;">Schedule New Class</h3>
+            <form class="modal-form" id="admin-scheduler-form">
+              <div class="form-group">
+                <label for="sched-class-title" class="form-label">Select Class Pillar</label>
+                <select id="sched-class-title" class="form-input" required>
+                  <option value="" disabled selected>-- Select Pillar --</option>
+                  <option value="Sunrise Yoga Fusion">Sunrise Yoga Fusion</option>
+                  <option value="Precision Pilates Reformer">Precision Pilates Reformer</option>
+                  <option value="Classic Barre Burn">Classic Barre Burn</option>
+                  <option value="Deep Sound Bath & Breath">Deep Sound Bath & Breath</option>
+                  <option value="VYORA Athletic HIIT">VYORA Athletic HIIT</option>
+                  <option value="Deep Restorative Stretch">Deep Restorative Stretch</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="sched-day" class="form-label">Select Weekday</label>
+                <select id="sched-day" class="form-input" required>
+                  <option value="" disabled selected>-- Select Day --</option>
+                  <option value="Monday">Monday</option>
+                  <option value="Tuesday">Tuesday</option>
+                  <option value="Wednesday">Wednesday</option>
+                  <option value="Thursday">Thursday</option>
+                  <option value="Friday">Friday</option>
+                  <option value="Saturday">Saturday</option>
+                  <option value="Sunday">Sunday</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="sched-time" class="form-label">Class Timing (e.g. 08:30 - 09:30 AM)</label>
+                <input type="text" id="sched-time" class="form-input" placeholder="e.g. 08:30 - 09:30 AM" required>
+              </div>
+
+              <div class="form-group">
+                <label for="sched-instructor" class="form-label">Instructor</label>
+                <select id="sched-instructor" class="form-input" required>
+                  <option value="" disabled selected>-- Select Instructor --</option>
+                  <option value="Chloe Adams">Chloe Adams</option>
+                  <option value="Elena Rostova">Elena Rostova</option>
+                  <option value="Sarah Jenkins">Sarah Jenkins</option>
+                  <option value="Maya Lin">Maya Lin</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary modal-btn" style="width: 100%;">Schedule Session</button>
+            </form>
+          </div>
+
+          <!-- Real-Time Added list table -->
+          <div class="dash-card">
+            <h3 class="hours-heading" style="font-size: 1.15rem; margin-bottom: 20px;">Recently Scheduled Sessions</h3>
+            <p style="font-size: 0.88rem; color: var(--color-gray); margin-bottom: 20px;">Timetable entries registered in this active session.</p>
+            
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Day</th>
+                    <th>Class Title</th>
+                    <th>Time</th>
+                    <th>Trainer</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-recently-scheduled-tbody">
+                  <!-- Empty List placeholder -->
+                  <tr id="sched-empty-placeholder-row">
+                    <td colspan="4" style="text-align: center; color: var(--color-gray); padding: 30px 10px;">
+                      No sessions scheduled yet in this editor. Use the form on the left.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE 5: Analytics -->
+      <div class="dash-pane" id="admin-analytics">
+        <div style="margin-bottom: 24px;">
+          <span class="user-tier">Business Metrics</span>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">Revenue & Growth Analytics</h2>
+        </div>
+
+        <div class="dash-responsive-row">
+          <!-- Monthly Growth Card -->
+          <div class="dash-card">
+            <h3 class="hours-heading" style="font-size: 1.15rem; margin-bottom: 20px;">Monthly Revenue Growth</h3>
+            
+            <div class="admin-chart-container">
+              <!-- Bar 1 -->
+              <div class="admin-chart-row">
+                <span class="admin-chart-lbl">February</span>
+                <div class="admin-chart-bar-bg">
+                  <div class="admin-chart-bar-fill" style="width: 60%; background: linear-gradient(90deg, #2ECC71 0%, #27AE60 100%);"></div>
+                </div>
+                <span class="admin-chart-val">$24K</span>
+              </div>
+              <!-- Bar 2 -->
+              <div class="admin-chart-row">
+                <span class="admin-chart-lbl">March</span>
+                <div class="admin-chart-bar-bg">
+                  <div class="admin-chart-bar-fill" style="width: 75%; background: linear-gradient(90deg, #2ECC71 0%, #27AE60 100%);"></div>
+                </div>
+                <span class="admin-chart-val">$30K</span>
+              </div>
+              <!-- Bar 3 -->
+              <div class="admin-chart-row">
+                <span class="admin-chart-lbl">April</span>
+                <div class="admin-chart-bar-bg">
+                  <div class="admin-chart-bar-fill" style="width: 82%; background: linear-gradient(90deg, #2ECC71 0%, #27AE60 100%);"></div>
+                </div>
+                <span class="admin-chart-val">$35K</span>
+              </div>
+              <!-- Bar 4 -->
+              <div class="admin-chart-row">
+                <span class="admin-chart-lbl">May</span>
+                <div class="admin-chart-bar-bg">
+                  <div class="admin-chart-bar-fill" style="width: 95%; background: linear-gradient(90deg, #2ECC71 0%, #27AE60 100%);"></div>
+                </div>
+                <span class="admin-chart-val">$42K</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Membership Breakdown Card -->
+          <div class="dash-card">
+            <h3 class="hours-heading" style="font-size: 1.15rem; margin-bottom: 20px;">Membership Tier breakdown</h3>
+            
+            <div class="admin-chart-container">
+              <!-- Bar 1 -->
+              <div class="admin-chart-row">
+                <span class="admin-chart-lbl">Restoration</span>
+                <div class="admin-chart-bar-bg">
+                  <div class="admin-chart-bar-fill" style="width: 45%;"></div>
+                </div>
+                <span class="admin-chart-val">288</span>
+              </div>
+              <!-- Bar 2 -->
+              <div class="admin-chart-row">
+                <span class="admin-chart-lbl">Sanctuary</span>
+                <div class="admin-chart-bar-bg">
+                  <div class="admin-chart-bar-fill" style="width: 85%;"></div>
+                </div>
+                <span class="admin-chart-val">540</span>
+              </div>
+              <!-- Bar 3 -->
+              <div class="admin-chart-row">
+                <span class="admin-chart-lbl">Oasis VIP</span>
+                <div class="admin-chart-bar-bg">
+                  <div class="admin-chart-bar-fill" style="width: 65%;"></div>
+                </div>
+                <span class="admin-chart-val">420</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Booking Modal Structure -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close Modal"><i class="fas fa-times"></i></button>
+      
+      <!-- Default Form -->
+      <div id="modal-form-content">
+        <h2 class="modal-title">Book a <span>Trial Session</span></h2>
+        <p class="modal-desc">Enjoy a complimentary trial class. Fill in your details, and our wellness concierge will contact you within 24 hours.</p>
+        
+        <form class="modal-form" id="booking-form">
+          <div class="form-group">
+            <label for="booking-name" class="form-label">Full Name</label>
+            <input type="text" id="booking-name" class="form-input" placeholder="e.g. Elena Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-email" class="form-label">Email Address</label>
+            <input type="email" id="booking-email" class="form-input" placeholder="e.g. elena@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-class" class="form-label">Select Pillar / Session</label>
+            <select id="booking-class" class="form-input" required>
+              <option value="" disabled selected>-- Select a Session --</option>
+              <option value="Sunrise Yoga Fusion">Sunrise Yoga Fusion (Yoga)</option>
+              <option value="Precision Pilates">Precision Pilates (Reformer)</option>
+              <option value="Classic Barre Burn">Classic Barre Burn (Barre)</option>
+              <option value="Deep Sound Bath & Breath">Sound Bath & Meditation (Mindful)</option>
+              <option value="VYORA Athletic HIIT">VYORA Athletic HIIT (Strength)</option>
+              <option value="Deep Restorative Stretch">Deep Restorative Stretch (Recovery)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="booking-notes" class="form-label">Notes (e.g. Injuries, level, goals)</label>
+            <textarea id="booking-notes" class="form-input" placeholder="Let us know how we can tailor your experience..." rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary modal-btn">Send Booking Request</button>
+        </form>
+      </div>
+
+      <!-- Success Screen -->
+      <div id="modal-success-content" class="modal-success">
+        <div class="modal-success-icon"><i class="fas fa-check"></i></div>
+        <h3 class="modal-success-title">Booking Requested</h3>
+        <p class="modal-success-desc">Thank you for choosing VYORA. A wellness coordinator has received your details and will call or email you shortly to confirm your complimentary slot.</p>
+        <button class="btn btn-primary" id="modal-success-close-btn" style="width: 100%;">Return to Site</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Account Auth Modals -->\n\n    <!-- User Account Auth Modals -->
+    <div class="auth-overlay" id="authModal">
+      <div class="auth-modal-box">
+        <button class="auth-close" id="auth-close" aria-label="Close Form"><i class="fas fa-times"></i></button>
+
+        <!-- Login View -->
+        <div id="login-form-content">
+          <h2 class="auth-title">Welcome <span>Back</span></h2>
+          <p class="auth-subtitle">Enter your sanctuary details to access your dashboard portal.</p>
+          <form class="modal-form" id="login-form">
+            <div class="form-group">
+              <label for="login-email" class="form-label">Email Address</label>
+              <input type="email" id="login-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label for="login-password" class="form-label">Password</label>
+              <div class="password-input-wrapper">
+                <input type="password" id="login-password" class="form-input" placeholder="••••••••" required style="width: 100%;">
+                <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <div class="form-help">
+                <a href="#" class="forgot-password-link" id="forgot-password-btn">Forgot Password?</a>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Enter Portal</button>
+            <p style="font-size: 0.82rem; text-align: center; margin-top: 20px; color: var(--color-gray);">
+              New to VYORA? <a href="#" id="go-to-signup" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Create Sanctuary Account</a>
+            </p>
+          </form>
+        </div>
+
+        <!-- Sign Up View -->
+        <div id="signup-form-content" style="display: none;">
+          <h2 class="auth-title">Create <span>Sanctuary Account</span></h2>
+          <p class="auth-subtitle">Join VYORA boutique studio and begin your premium journey.</p>
+          <form class="modal-form" id="signup-form">
+            <div class="form-group">
+              <label for="signup-name" class="form-label">Full Name</label>
+              <input type="text" id="signup-name" class="form-input" placeholder="Elena Smith" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label for="signup-email" class="form-label">Email Address</label>
+              <input type="email" id="signup-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label for="signup-password" class="form-label">Password</label>
+              <div class="password-input-wrapper">
+                <input type="password" id="signup-password" class="form-input" placeholder="Min. 8 characters" required style="width: 100%;">
+                <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <!-- Password Strength meter box -->
+              <div style="height: 4px; background-color: var(--color-beige); border-radius: 2px; margin-top: 8px; overflow: hidden; position: relative;">
+                <div id="password-strength-bar" style="height: 100%; width: 0%; background-color: #E74C3C; transition: all 0.3s ease;"></div>
+              </div>
+              <span id="password-strength-text" style="font-size: 0.72rem; color: var(--color-gray); margin-top: 4px; display: block;">Strength: Weak</span>
+            </div>
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Register Sanctuary Account</button>
+            <p style="font-size: 0.82rem; text-align: center; margin-top: 20px; color: var(--color-gray);">
+              Already have an account? <a href="#" id="go-to-login" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Sign In</a>
+            </p>
+          </form>
+        </div>
+
+        <!-- Forgot Password View -->
+        <div id="forgot-password-content" style="display: none;">
+          <h2 class="auth-title">Restore <span>Sanctuary Details</span></h2>
+          <p class="auth-subtitle">Enter your email and we'll send you instructions to recover your account.</p>
+          <form class="modal-form" id="forgot-password-form">
+            <div class="form-group">
+              <label for="forgot-email" class="form-label">Email Address</label>
+              <input type="email" id="forgot-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+            </div>
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Send Reset Link</button>
+            <p style="font-size: 0.82rem; text-align: center; margin-top: 20px; color: var(--color-gray);">
+              Remember your details? <a href="#" id="go-to-login-from-forgot" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Sign In</a>
+            </p>
+          </form>
+          <!-- Success state inside forgot password -->
+          <div id="forgot-success-content" style="display: none; text-align: center; padding: 20px 0;">
+            <div style="font-size: 3rem; color: #2ECC71; margin-bottom: 16px;"><i class="fas fa-check-circle"></i></div>
+            <h3 style="font-family: var(--font-heading); font-weight: 700; margin-bottom: 8px;">Reset Link Sent</h3>
+            <p style="font-size: 0.9rem; color: var(--color-gray); margin-bottom: 20px;">We have sent a link to your email to restore your sanctuary details.</p>
+            <button type="button" class="btn btn-primary" id="forgot-success-back-btn" style="width: 100%;">Back to Sign In</button>
+          </div>
+        </div>
+      </div>
+    </div>\n\n    <!-- JavaScript -->
+  <script src="main.js"></script>
+  <script>
+    // Admin Dashboard Mobile Sidebar Hamburger
+    const dashHamburger = document.getElementById('dash-hamburger');
+    const dashSidebar = document.getElementById('dash-sidebar');
+    const dashBackdrop = document.getElementById('dash-backdrop');
+    const dashSidebarClose = document.getElementById('dash-sidebar-close');
+
+    function openDashSidebar() {
+      dashSidebar.classList.add('open');
+      dashBackdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDashSidebar() {
+      dashSidebar.classList.remove('open');
+      dashBackdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    if (dashHamburger) dashHamburger.addEventListener('click', openDashSidebar);
+    if (dashBackdrop) dashBackdrop.addEventListener('click', closeDashSidebar);
+    if (dashSidebarClose) dashSidebarClose.addEventListener('click', closeDashSidebar);
+
+    document.querySelectorAll('.dash-sidebar-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 992) closeDashSidebar();
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+

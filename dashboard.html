@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Journey Dashboard | VYORA Member Portal</title>
+  <meta name="description" content="Access your VYORA member portal. Book fitness classes, track active burn and attendance streaks, watch on-demand wellness videos, and log daily hydration.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+
+
+  <!-- Mobile Dashboard Top Bar -->
+  <div class="dash-mobile-topbar" id="dash-mobile-topbar">
+    <a href="index.html" class="dash-mobile-logo">
+      <div class="logo-icon"></div>
+      <div class="logo-text">VYORA</div>
+    </a>
+    <button class="dash-hamburger" id="dash-hamburger" aria-label="Open Sidebar Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Sidebar Backdrop Overlay -->
+  <div class="dash-backdrop" id="dash-backdrop"></div>
+
+  <!-- Dashboard Main Window Layout -->
+  <div class="dashboard-layout">
+    
+    <!-- Member Sidebar Navigation -->
+    <aside class="dash-sidebar" id="dash-sidebar">
+      <button class="dash-sidebar-close" id="dash-sidebar-close" aria-label="Close Sidebar"><i class="fas fa-times"></i></button>
+      <div class="dash-sidebar-header">
+        <div class="dash-sidebar-user" id="dash-sidebar-display-name">Elena Rostova</div>
+        <div class="dash-sidebar-role" id="dash-sidebar-display-tier">Sanctuary Access Tier</div>
+      </div>
+
+      <a href="#" class="dash-sidebar-link active" data-pane="member-dash-home"><i class="fas fa-columns"></i> Dashboard</a>
+      <a href="#" class="dash-sidebar-link" data-pane="member-dash-book"><i class="fas fa-calendar-alt"></i> Book Classes</a>
+      <a href="#" class="dash-sidebar-link" data-pane="member-dash-attendance"><i class="fas fa-calendar-check"></i> Attendance</a>
+      <a href="#" class="dash-sidebar-link" data-pane="member-dash-videos"><i class="fas fa-play-circle"></i> Video Library</a>
+      <a href="#" class="dash-sidebar-link" data-pane="member-dash-plan"><i class="fas fa-gem"></i> Membership</a>
+      <a href="#" class="dash-sidebar-link" data-pane="member-dash-notifications"><i class="fas fa-bell"></i> Notifications <span class="status-badge pending" style="margin-left: auto; padding: 2px 6px; font-size: 0.65rem;">3</span></a>
+      <a href="#" class="dash-sidebar-link" data-pane="member-dash-settings"><i class="fas fa-user-cog"></i> Profile Settings</a>
+      <a href="index.html" class="dash-sidebar-link logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </aside>
+
+    <!-- Dashboard Portal Windows Panels -->
+    <main class="dash-main-content">
+
+      <!-- PANE 1: Dashboard Home Overview -->
+      <div class="dash-pane active" id="member-dash-home">
+        
+        <div style="margin-bottom: 28px;">
+          <span class="user-tier">Welcome Back</span>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);" id="dash-welcome-title">Welcome back, <span>Elena</span></h2>
+        </div>
+
+        <div class="dash-grid">
+          <!-- Left Column: Metrics and Goals -->
+          <div class="dash-column">
+            
+            <!-- Stat Cards Row -->
+            <div class="dash-row-stats reveal">
+              <!-- Stat 1: Streak -->
+              <div class="dash-card dash-stat-glow">
+                <div class="dash-stat-icon"><i class="fas fa-fire"></i></div>
+                <div class="dash-stat-val" id="dash-streak">12 Days</div>
+                <div class="dash-stat-lbl">Active Streak</div>
+              </div>
+              <!-- Stat 2: Active Burn -->
+              <div class="dash-card dash-stat-glow">
+                <div class="dash-stat-icon"><i class="fas fa-bolt"></i></div>
+                <div class="dash-stat-val" id="dash-calories">3,450 kcal</div>
+                <div class="dash-stat-lbl">Active Burn</div>
+              </div>
+              <!-- Stat 3: BMI Tracker -->
+              <div class="dash-card dash-stat-glow">
+                <div class="dash-stat-icon"><i class="fas fa-weight"></i></div>
+                <div class="dash-stat-val" id="dash-bmi">21.4</div>
+                <div class="dash-stat-lbl">BMI Index</div>
+              </div>
+            </div>
+
+            <!-- Weekly Goals Circular Progress -->
+            <div class="dash-card reveal">
+              <h3 class="hours-heading" style="margin-bottom: 30px;">Weekly Class Objectives</h3>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center;">
+                <div class="dash-circle-wrapper">
+                  <svg class="dash-svg-ring" width="140" height="140">
+                    <circle cx="70" cy="70" r="60" fill="none" stroke="rgba(255, 107, 26, 0.08)" stroke-width="8" />
+                    <circle id="goal-progress-circle" cx="70" cy="70" r="60" fill="none" stroke="var(--color-orange)" stroke-width="8" 
+                      stroke-dasharray="377" stroke-dashoffset="377" stroke-linecap="round" />
+                  </svg>
+                  <div class="dash-circle-text">
+                    <div class="dash-circle-num" id="goal-ratio">4 / 5</div>
+                    <div class="dash-circle-sub">Classes</div>
+                  </div>
+                </div>
+                <div>
+                  <h4 style="font-size: 1.15rem; margin-bottom: 8px; color: var(--color-black);" id="goal-status-title">Almost There!</h4>
+                  <p style="font-size: 0.95rem; color: var(--color-gray); line-height: 1.5;">
+                    You have completed 80% of your weekly movement goals. Complete one more class to satisfy your ritual.
+                  </p>
+                  <button class="btn btn-secondary dash-go-to-book-btn" style="margin-top: 16px; padding: 10px 20px; font-size: 0.85rem;">Book Final Class</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Achievements Badges Showcase -->
+            <div class="dash-card reveal">
+              <h3 class="hours-heading">Vyora Milestones & Badges</h3>
+              <div class="badges-grid">
+                <div class="badge-item">
+                  <div class="badge-icon"><i class="fas fa-spa"></i></div>
+                  <span class="badge-name">Elite Yogi</span>
+                </div>
+                <div class="badge-item">
+                  <div class="badge-icon"><i class="fas fa-award"></i></div>
+                  <span class="badge-name">Barre Master</span>
+                </div>
+                <div class="badge-item">
+                  <div class="badge-icon"><i class="fas fa-om"></i></div>
+                  <span class="badge-name">Soul Centered</span>
+                </div>
+                <div class="badge-item">
+                  <div class="badge-icon" style="opacity: 0.4; border-style: dashed; filter: grayscale(1);"><i class="fas fa-dumbbell"></i></div>
+                  <span class="badge-name" style="opacity: 0.6;">HIIT Champion</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Hydration & Bookings -->
+          <div class="dash-column">
+            
+            <!-- Hydration Reminder Tracker -->
+            <div class="dash-card reveal">
+              <h3 class="hours-heading" style="margin-bottom: 12px;">Hydration Tracker</h3>
+              <p style="font-size: 0.9rem; color: var(--color-gray); margin-bottom: 20px;">
+                Keep your muscle cells balanced and hydrated. Target output: 8 cups (2.0L) daily.
+              </p>
+              <div class="water-tracker">
+                <div class="water-indicator-grid" id="water-drops-grid">
+                  <i class="fas fa-tint water-drop filled"></i>
+                  <i class="fas fa-tint water-drop filled"></i>
+                  <i class="fas fa-tint water-drop filled"></i>
+                  <i class="fas fa-tint water-drop filled"></i>
+                  <i class="fas fa-tint water-drop"></i>
+                  <i class="fas fa-tint water-drop"></i>
+                  <i class="fas fa-tint water-drop"></i>
+                  <i class="fas fa-tint water-drop"></i>
+                </div>
+                <div style="font-size: 1rem; font-weight: 700; color: var(--color-black);" id="water-text">4 / 8 Cups Logged</div>
+                <div class="water-btn-box">
+                  <button class="btn btn-primary" id="log-water-btn" style="width: 100%; padding: 12px;"><i class="fas fa-plus"></i> Log Cup of Water</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Upcoming Registered Bookings Feed -->
+            <div class="dash-card reveal">
+              <h3 class="hours-heading" style="margin-bottom: 24px;">Upcoming Classes</h3>
+              <div class="faq-accordion" style="max-width: 100%; gap: 16px;" id="bookings-feed">
+                
+                <!-- Booking 1 -->
+                <div class="faq-item active" style="border-color: var(--color-beige);" id="booking-slot-1">
+                  <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                      <span class="timeline-year" style="font-size: 0.85rem; padding: 4px 8px; border-radius: var(--radius-sm); background-color: rgba(255, 107, 26, 0.08); margin-bottom: 6px;">Tomorrow, 07:30 AM</span>
+                      <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--color-black);">Precision Reformer Flow</h4>
+                      <p style="font-size: 0.85rem; color: var(--color-gray); margin-top: 4px;"><i class="fas fa-user-circle"></i> Elena Rostova â€¢ Reformer Room</p>
+                    </div>
+                    <button class="btn btn-secondary cancel-booking-btn" data-target="booking-slot-1" style="padding: 8px 12px; font-size: 0.75rem; border-color: rgba(27,27,27,0.15); color: var(--color-gray);">Cancel</button>
+                  </div>
+                </div>
+
+                <!-- Booking 2 -->
+                <div class="faq-item active" style="border-color: var(--color-beige);" id="booking-slot-2">
+                  <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                      <span class="timeline-year" style="font-size: 0.85rem; padding: 4px 8px; border-radius: var(--radius-sm); background-color: rgba(255, 107, 26, 0.08); margin-bottom: 6px;">Sunday, 10:00 AM</span>
+                      <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--color-black);">Restorative Sound Bath</h4>
+                      <p style="font-size: 0.85rem; color: var(--color-gray); margin-top: 4px;"><i class="fas fa-user-circle"></i> Maya Lin â€¢ Meditation Room</p>
+                    </div>
+                    <button class="btn btn-secondary cancel-booking-btn" data-target="booking-slot-2" style="padding: 8px 12px; font-size: 0.75rem; border-color: rgba(27,27,27,0.15); color: var(--color-gray);">Cancel</button>
+                  </div>
+                </div>
+
+              </div>
+              
+              <!-- Empty feed warning (hidden by default) -->
+              <div id="empty-bookings-warning" style="display: none; text-align: center; padding: 30px 10px;">
+                <i class="far fa-calendar-times" style="font-size: 2rem; color: var(--color-beige); margin-bottom: 12px;"></i>
+                <p style="font-size: 0.95rem; color: var(--color-gray);">You have no upcoming class bookings. Ready to move?</p>
+                <button class="btn btn-primary dash-go-to-book-btn" style="margin-top: 16px; width: 100%;">View Timetable</button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE 2: Book Classes -->
+      <div class="dash-pane" id="member-dash-book">
+        <div style="margin-bottom: 24px;">
+          <span class="user-tier">Reserve Slots</span>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">Quick Booking Suite</h2>
+        </div>
+
+        <div class="dash-card">
+          <h3 class="hours-heading" style="font-size: 1.15rem; margin-bottom: 20px;">Available Public Timetables</h3>
+          <p style="font-size: 0.88rem; color: var(--color-gray); margin-bottom: 20px;">Book a class directly into your active dashboard upcoming bookings.</p>
+          
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Session Day</th>
+                  <th>Class Title</th>
+                  <th>Time Slot</th>
+                  <th>Guide</th>
+                  <th style="text-align: center;">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Monday</td>
+                  <td>Classic Barre Burn</td>
+                  <td>09:30 AM</td>
+                  <td>Chloe Adams</td>
+                  <td style="text-align: center;">
+                    <button class="btn btn-primary dash-booking-action-btn" data-class="Classic Barre Burn" data-day="Monday" data-time="09:30 AM" data-coach="Chloe Adams" style="padding: 6px 14px; font-size: 0.75rem;">Book Slot</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Tuesday</td>
+                  <td>Sound Bath & Meditation</td>
+                  <td>09:00 AM</td>
+                  <td>Maya Lin</td>
+                  <td style="text-align: center;">
+                    <button class="btn btn-primary dash-booking-action-btn" data-class="Sound Bath & Meditation" data-day="Tuesday" data-time="09:00 AM" data-coach="Maya Lin" style="padding: 6px 14px; font-size: 0.75rem;">Book Slot</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Wednesday</td>
+                  <td>VYORA Athletic HIIT</td>
+                  <td>05:30 PM</td>
+                  <td>Sarah Jenkins</td>
+                  <td style="text-align: center;">
+                    <button class="btn btn-primary dash-booking-action-btn" data-class="VYORA Athletic HIIT" data-day="Wednesday" data-time="05:30 PM" data-coach="Sarah Jenkins" style="padding: 6px 14px; font-size: 0.75rem;">Book Slot</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Thursday</td>
+                  <td>Precision Reformer Flow</td>
+                  <td>06:00 PM</td>
+                  <td>Elena Rostova</td>
+                  <td style="text-align: center;">
+                    <button class="btn btn-primary dash-booking-action-btn" data-class="Precision Reformer Flow" data-day="Thursday" data-time="06:00 PM" data-coach="Elena Rostova" style="padding: 6px 14px; font-size: 0.75rem;">Book Slot</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE 3: Attendance log -->
+      <div class="dash-pane" id="member-dash-attendance">
+        <div style="margin-bottom: 24px;">
+          <span class="user-tier">Ritual Logs</span>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">Attendance History</h2>
+        </div>
+
+        <div class="dash-responsive-row">
+          <!-- Calendar details grid -->
+          <div class="dash-card">
+            <h3 class="hours-heading" style="font-size: 1.15rem; margin-bottom: 20px;">May 2026 Attendance</h3>
+            <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; text-align: center;">
+              <!-- Simple mock calendars -->
+              <span style="font-size: 0.72rem; font-weight: 700; color: var(--color-gray);">M</span>
+              <span style="font-size: 0.72rem; font-weight: 700; color: var(--color-gray);">T</span>
+              <span style="font-size: 0.72rem; font-weight: 700; color: var(--color-gray);">W</span>
+              <span style="font-size: 0.72rem; font-weight: 700; color: var(--color-gray);">T</span>
+              <span style="font-size: 0.72rem; font-weight: 700; color: var(--color-gray);">F</span>
+              <span style="font-size: 0.72rem; font-weight: 700; color: var(--color-gray);">S</span>
+              <span style="font-size: 0.72rem; font-weight: 700; color: var(--color-gray);">S</span>
+
+              <span style="color: rgba(27,27,27,0.2);">28</span>
+              <span style="color: rgba(27,27,27,0.2);">29</span>
+              <span style="color: rgba(27,27,27,0.2);">30</span>
+              <span style="color: rgba(27,27,27,0.2);">1</span>
+              <span style="padding: 4px; border-radius: 50%; background-color: var(--color-orange); color: var(--color-white); font-weight: 700;">2</span>
+              <span>3</span>
+              <span>4</span>
+              
+              <span>5</span>
+              <span style="padding: 4px; border-radius: 50%; background-color: var(--color-orange); color: var(--color-white); font-weight: 700;">6</span>
+              <span>7</span>
+              <span>8</span>
+              <span style="padding: 4px; border-radius: 50%; background-color: var(--color-orange); color: var(--color-white); font-weight: 700;">9</span>
+              <span>10</span>
+              <span>11</span>
+
+              <span>12</span>
+              <span>13</span>
+              <span style="padding: 4px; border-radius: 50%; background-color: var(--color-orange); color: var(--color-white); font-weight: 700;">14</span>
+              <span>15</span>
+              <span>16</span>
+              <span>17</span>
+              <span>18</span>
+
+              <span style="padding: 4px; border-radius: 50%; background-color: var(--color-orange); color: var(--color-white); font-weight: 700;">19</span>
+              <span>20</span>
+              <span>21</span>
+              <span style="padding: 4px; border-radius: 50%; background-color: var(--color-orange); color: var(--color-white); font-weight: 700;">22</span>
+              <span style="border: 2px solid var(--color-orange); border-radius: 50%; font-weight: 700;">23</span>
+              <span>24</span>
+              <span>25</span>
+            </div>
+          </div>
+
+          <!-- Streak details -->
+          <div class="dash-card">
+            <h3 class="hours-heading" style="font-size: 1.15rem; margin-bottom: 20px;">May Attendance Summary</h3>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check" style="color: var(--color-orange);"></i> Billed classes completed: 6</li>
+              <li><i class="fas fa-check" style="color: var(--color-orange);"></i> Total Active Burn: 2,150 kcal</li>
+              <li><i class="fas fa-check" style="color: var(--color-orange);"></i> On-Time Check-Ins: 100%</li>
+              <li><i class="fas fa-check" style="color: var(--color-orange);"></i> No-Show Penalties: 0</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE 4: Video On-Demand Library -->
+      <div class="dash-pane" id="member-dash-videos">
+        <div style="margin-bottom: 24px;">
+          <span class="user-tier">Move At Home</span>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">On-Demand Library</h2>
+        </div>
+
+        <div class="videos-grid">
+          <!-- Video 1 -->
+          <div class="dash-video-card">
+            <div class="video-thumb-container">
+              <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=400&auto=format&fit=crop" class="video-thumb" alt="Reformer Pilates Flow">
+              <div class="video-play-overlay"><i class="fas fa-play"></i></div>
+              <span class="video-duration">45 Min</span>
+            </div>
+            <div class="video-info">
+              <span class="video-category">Precision Pilates</span>
+              <h4 class="video-title">Reformer Core Alignment</h4>
+              <span class="video-coach">Elena Rostova</span>
+            </div>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="dash-video-card">
+            <div class="video-thumb-container">
+              <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=400&auto=format&fit=crop" class="video-thumb" alt="Sunset Vinyasa Flow">
+              <div class="video-play-overlay"><i class="fas fa-play"></i></div>
+              <span class="video-duration">30 Min</span>
+            </div>
+            <div class="video-info">
+              <span class="video-category">Yoga Fusion</span>
+              <h4 class="video-title">Power Flow Vinyasa</h4>
+              <span class="video-coach">Chloe Adams</span>
+            </div>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="dash-video-card">
+            <div class="video-thumb-container">
+              <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=400&auto=format&fit=crop" class="video-thumb" alt="Sound Healing Session">
+              <div class="video-play-overlay"><i class="fas fa-play"></i></div>
+              <span class="video-duration">20 Min</span>
+            </div>
+            <div class="video-info">
+              <span class="video-category">Breath & Sound</span>
+              <h4 class="video-title">Vibrational Crystal Cleanse</h4>
+              <span class="video-coach">Maya Lin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE 5: Membership Plan Actions -->
+      <div class="dash-pane" id="member-dash-plan">
+        <div style="margin-bottom: 24px;">
+          <span class="user-tier">My Ritual plan</span>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">Sanctuary Access Membership</h2>
+        </div>
+
+        <div class="dash-responsive-row uneven-12-1">
+          <div class="dash-card">
+            <h3 class="hours-heading" style="font-size: 1.15rem; margin-bottom: 20px;">Active Plan Details</h3>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+              <span style="color: var(--color-gray); font-weight: 600;">Pricing Tier</span>
+              <span style="font-weight: 700; color: var(--color-black);">Sanctuary Access</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+              <span style="color: var(--color-gray); font-weight: 600;">Monthly Fee</span>
+              <span style="font-weight: 700; color: var(--color-black);">$290 / mo</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+              <span style="color: var(--color-gray); font-weight: 600;">Next Billing Date</span>
+              <span style="font-weight: 700; color: var(--color-black);">June 12, 2026</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+              <span style="color: var(--color-gray); font-weight: 600;">Registered Classes Remaining</span>
+              <span style="font-weight: 700; color: var(--color-orange);">10 / 16 classes</span>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 24px;">
+              <button class="btn btn-secondary" style="flex: 1; padding: 12px;">Pause Membership</button>
+              <a href="membership.html" class="btn btn-primary" style="flex: 1; padding: 12px; text-align: center;">Upgrade Plan</a>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <h3 class="hours-heading" style="font-size: 1.15rem; margin-bottom: 20px;">Sanctuary Perks Included</h3>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check" style="color: var(--color-orange);"></i> 16 Monthly Studio Classes</li>
+              <li><i class="fas fa-check" style="color: var(--color-orange);"></i> Cold Eucalyptus Towel service</li>
+              <li><i class="fas fa-check" style="color: var(--color-orange);"></i> Unlimited Warm Plaster Reformer Room</li>
+              <li><i class="fas fa-check" style="color: var(--color-orange);"></i> Full bath lockers and amenities</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE 6: Notifications Inbox -->
+      <div class="dash-pane" id="member-dash-notifications">
+        <div style="margin-bottom: 24px;">
+          <span class="user-tier">Inbox Feed</span>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">Studio Alerts</h2>
+        </div>
+
+        <div class="dash-card" style="display: flex; flex-direction: column; gap: 16px;">
+          <!-- Alert 1 -->
+          <div style="padding: 16px; border-radius: var(--radius-md); background-color: rgba(255,107,26,0.05); border-left: 4px solid var(--color-orange);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-black);">Priority Waitlist Approved!</h4>
+              <span style="font-size: 0.75rem; color: var(--color-gray);">May 22, 10:45 AM</span>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--color-gray);">Your waitlist position for tomorrow's 07:30 AM Precision Reformer Flow has cleared. You have been automatically booked in slot 12.</p>
+          </div>
+
+          <!-- Alert 2 -->
+          <div style="padding: 16px; border-radius: var(--radius-md); background-color: var(--color-cream); border-left: 4px solid var(--color-beige);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-black);">Trainer Substitution Alert</h4>
+              <span style="font-size: 0.75rem; color: var(--color-gray);">May 20, 04:15 PM</span>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--color-gray);">Please note that master coach Maya Lin will be guiding Sunday's Restorative Sound Bath in place of Elena Rostova. The time remains 10:00 AM.</p>
+          </div>
+
+          <!-- Alert 3 -->
+          <div style="padding: 16px; border-radius: var(--radius-md); background-color: var(--color-cream); border-left: 4px solid var(--color-beige);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-black);">Holiday Studio Hours</h4>
+              <span style="font-size: 0.75rem; color: var(--color-gray);">May 15, 09:00 AM</span>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--color-gray);">VYORA will operate on holiday schedule next Monday. Classes are capped between 09:00 AM and 05:00 PM only.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE 7: Profile settings -->
+      <div class="dash-pane" id="member-dash-settings">
+        <div style="margin-bottom: 24px;">
+          <span class="user-tier">System Credentials</span>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">Profile Settings</h2>
+        </div>
+
+        <div class="dash-card" style="max-width: 600px;">
+          <form class="modal-form" id="dash-settings-form">
+            <div class="form-group">
+              <label for="settings-name" class="form-label">Display Name</label>
+              <input type="text" id="settings-name" class="form-input" value="Elena Rostova" required>
+            </div>
+            <div class="form-group">
+              <label for="settings-email" class="form-label">Email Address</label>
+              <input type="email" id="settings-email" class="form-input" value="elena@vyorafitness.com" required>
+            </div>
+            <div class="form-group">
+              <label for="settings-streak" class="form-label">Streak Count Goal</label>
+              <input type="number" id="settings-streak" class="form-input" value="12" min="0">
+            </div>
+            <div class="form-group">
+              <label for="settings-calories" class="form-label">Active Calories Goal (kcal)</label>
+              <input type="number" id="settings-calories" class="form-input" value="3450" min="0">
+            </div>
+            <div class="form-group">
+              <label for="settings-password" class="form-label">New Password (Leave blank to keep current)</label>
+              <input type="password" id="settings-password" class="form-input" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢">
+            </div>
+
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 15px;">Save Changes</button>
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Booking Modal Structure -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close Modal"><i class="fas fa-times"></i></button>
+      
+      <!-- Default Form -->
+      <div id="modal-form-content">
+        <h2 class="modal-title">Book a <span>Trial Session</span></h2>
+        <p class="modal-desc">Enjoy a complimentary trial class. Fill in your details, and our wellness concierge will contact you within 24 hours.</p>
+        
+        <form class="modal-form" id="booking-form">
+          <div class="form-group">
+            <label for="booking-name" class="form-label">Full Name</label>
+            <input type="text" id="booking-name" class="form-input" placeholder="e.g. Elena Smith" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-email" class="form-label">Email Address</label>
+            <input type="email" id="booking-email" class="form-input" placeholder="e.g. elena@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="booking-class" class="form-label">Select Pillar / Session</label>
+            <select id="booking-class" class="form-input" required>
+              <option value="" disabled selected>-- Select a Session --</option>
+              <option value="Sunrise Yoga Fusion">Sunrise Yoga Fusion (Yoga)</option>
+              <option value="Precision Pilates">Precision Pilates (Reformer)</option>
+              <option value="Classic Barre Burn">Classic Barre Burn (Barre)</option>
+              <option value="Deep Sound Bath & Breath">Sound Bath & Meditation (Mindful)</option>
+              <option value="VYORA Athletic HIIT">VYORA Athletic HIIT (Strength)</option>
+              <option value="Deep Restorative Stretch">Deep Restorative Stretch (Recovery)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="booking-notes" class="form-label">Notes (e.g. Injuries, level, goals)</label>
+            <textarea id="booking-notes" class="form-input" placeholder="Let us know how we can tailor your experience..." rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary modal-btn">Send Booking Request</button>
+        </form>
+      </div>
+
+      <!-- Success Screen -->
+      <div id="modal-success-content" class="modal-success">
+        <div class="modal-success-icon"><i class="fas fa-check"></i></div>
+        <h3 class="modal-success-title">Booking Requested</h3>
+        <p class="modal-success-desc">Thank you for choosing VYORA. A wellness coordinator has received your details and will call or email you shortly to confirm your complimentary slot.</p>
+        <button class="btn btn-primary" id="modal-success-close-btn" style="width: 100%;">Return to Site</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Account Auth Modals -->\n\n    <!-- User Account Auth Modals -->
+    <div class="auth-overlay" id="authModal">
+      <div class="auth-modal-box">
+        <button class="auth-close" id="auth-close" aria-label="Close Form"><i class="fas fa-times"></i></button>
+
+        <!-- Login View -->
+        <div id="login-form-content">
+          <h2 class="auth-title">Welcome <span>Back</span></h2>
+          <p class="auth-subtitle">Enter your sanctuary details to access your dashboard portal.</p>
+          <form class="modal-form" id="login-form">
+            <div class="form-group">
+              <label for="login-email" class="form-label">Email Address</label>
+              <input type="email" id="login-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label for="login-password" class="form-label">Password</label>
+              <div class="password-input-wrapper">
+                <input type="password" id="login-password" class="form-input" placeholder="••••••••" required style="width: 100%;">
+                <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <div class="form-help">
+                <a href="#" class="forgot-password-link" id="forgot-password-btn">Forgot Password?</a>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Enter Portal</button>
+            <p style="font-size: 0.82rem; text-align: center; margin-top: 20px; color: var(--color-gray);">
+              New to VYORA? <a href="#" id="go-to-signup" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Create Sanctuary Account</a>
+            </p>
+          </form>
+        </div>
+
+        <!-- Sign Up View -->
+        <div id="signup-form-content" style="display: none;">
+          <h2 class="auth-title">Create <span>Sanctuary Account</span></h2>
+          <p class="auth-subtitle">Join VYORA boutique studio and begin your premium journey.</p>
+          <form class="modal-form" id="signup-form">
+            <div class="form-group">
+              <label for="signup-name" class="form-label">Full Name</label>
+              <input type="text" id="signup-name" class="form-input" placeholder="Elena Smith" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label for="signup-email" class="form-label">Email Address</label>
+              <input type="email" id="signup-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label for="signup-password" class="form-label">Password</label>
+              <div class="password-input-wrapper">
+                <input type="password" id="signup-password" class="form-input" placeholder="Min. 8 characters" required style="width: 100%;">
+                <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <!-- Password Strength meter box -->
+              <div style="height: 4px; background-color: var(--color-beige); border-radius: 2px; margin-top: 8px; overflow: hidden; position: relative;">
+                <div id="password-strength-bar" style="height: 100%; width: 0%; background-color: #E74C3C; transition: all 0.3s ease;"></div>
+              </div>
+              <span id="password-strength-text" style="font-size: 0.72rem; color: var(--color-gray); margin-top: 4px; display: block;">Strength: Weak</span>
+            </div>
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Register Sanctuary Account</button>
+            <p style="font-size: 0.82rem; text-align: center; margin-top: 20px; color: var(--color-gray);">
+              Already have an account? <a href="#" id="go-to-login" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Sign In</a>
+            </p>
+          </form>
+        </div>
+
+        <!-- Forgot Password View -->
+        <div id="forgot-password-content" style="display: none;">
+          <h2 class="auth-title">Restore <span>Sanctuary Details</span></h2>
+          <p class="auth-subtitle">Enter your email and we'll send you instructions to recover your account.</p>
+          <form class="modal-form" id="forgot-password-form">
+            <div class="form-group">
+              <label for="forgot-email" class="form-label">Email Address</label>
+              <input type="email" id="forgot-email" class="form-input" placeholder="elena@example.com" required style="width: 100%;">
+            </div>
+            <button type="submit" class="btn btn-primary modal-btn" style="width: 100%; margin-top: 10px;">Send Reset Link</button>
+            <p style="font-size: 0.82rem; text-align: center; margin-top: 20px; color: var(--color-gray);">
+              Remember your details? <a href="#" id="go-to-login-from-forgot" style="color: var(--color-orange); font-weight: 700; text-decoration: none;">Sign In</a>
+            </p>
+          </form>
+          <!-- Success state inside forgot password -->
+          <div id="forgot-success-content" style="display: none; text-align: center; padding: 20px 0;">
+            <div style="font-size: 3rem; color: #2ECC71; margin-bottom: 16px;"><i class="fas fa-check-circle"></i></div>
+            <h3 style="font-family: var(--font-heading); font-weight: 700; margin-bottom: 8px;">Reset Link Sent</h3>
+            <p style="font-size: 0.9rem; color: var(--color-gray); margin-bottom: 20px;">We have sent a link to your email to restore your sanctuary details.</p>
+            <button type="button" class="btn btn-primary" id="forgot-success-back-btn" style="width: 100%;">Back to Sign In</button>
+          </div>
+        </div>
+      </div>
+    </div>\n\n    <!-- JavaScript -->
+  <script src="main.js"></script>
+  <script>
+    // Dashboard Mobile Sidebar Hamburger
+    const dashHamburger = document.getElementById('dash-hamburger');
+    const dashSidebar = document.getElementById('dash-sidebar');
+    const dashBackdrop = document.getElementById('dash-backdrop');
+    const dashSidebarClose = document.getElementById('dash-sidebar-close');
+
+    function openDashSidebar() {
+      dashSidebar.classList.add('open');
+      dashBackdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDashSidebar() {
+      dashSidebar.classList.remove('open');
+      dashBackdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    if (dashHamburger) dashHamburger.addEventListener('click', openDashSidebar);
+    if (dashBackdrop) dashBackdrop.addEventListener('click', closeDashSidebar);
+    if (dashSidebarClose) dashSidebarClose.addEventListener('click', closeDashSidebar);
+
+    // Close sidebar when a nav link is tapped on mobile
+    document.querySelectorAll('.dash-sidebar-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 992) closeDashSidebar();
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
