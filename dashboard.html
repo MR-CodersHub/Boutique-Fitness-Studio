@@ -6,6 +6,7 @@
   <title>My Journey Dashboard | VYORA Member Portal</title>
   <meta name="description" content="Access your VYORA member portal. Book fitness classes, track active burn and attendance streaks, watch on-demand wellness videos, and log daily hydration.">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -16,7 +17,7 @@
   <div class="dash-mobile-topbar" id="dash-mobile-topbar">
     <a href="index.html" class="dash-mobile-logo">
       <div class="logo-icon"></div>
-      <div class="logo-text">VYORA</div>
+      <div class="logo-text">VY<span>O</span>RA</div>
     </a>
     <button class="dash-hamburger" id="dash-hamburger" aria-label="Open Sidebar Menu">
       <span></span>
@@ -57,7 +58,7 @@
         
         <div style="margin-bottom: 28px;">
           <span class="user-tier">Welcome Back</span>
-          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);" id="dash-welcome-title">Welcome back, <span>Elena</span></h2>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem;" id="dash-welcome-title">Welcome back, <span style="color: var(--color-orange);">Elena</span></h2>
         </div>
 
         <div class="dash-grid">
@@ -102,7 +103,7 @@
                   </div>
                 </div>
                 <div>
-                  <h4 style="font-size: 1.15rem; margin-bottom: 8px; color: var(--color-black);" id="goal-status-title">Almost There!</h4>
+                  <h4 style="font-size: 1.15rem; margin-bottom: 8px;" id="goal-status-title">Almost There!</h4>
                   <p style="font-size: 0.95rem; color: var(--color-gray); line-height: 1.5;">
                     You have completed 80% of your weekly movement goals. Complete one more class to satisfy your ritual.
                   </p>
@@ -156,7 +157,7 @@
                   <i class="fas fa-tint water-drop"></i>
                   <i class="fas fa-tint water-drop"></i>
                 </div>
-                <div style="font-size: 1rem; font-weight: 700; color: var(--color-black);" id="water-text">4 / 8 Cups Logged</div>
+                <div style="font-size: 1rem; font-weight: 700;" id="water-text">4 / 8 Cups Logged</div>
                 <div class="water-btn-box">
                   <button class="btn btn-primary" id="log-water-btn" style="width: 100%; padding: 12px;"><i class="fas fa-plus"></i> Log Cup of Water</button>
                 </div>
@@ -173,10 +174,10 @@
                   <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
                     <div>
                       <span class="timeline-year" style="font-size: 0.85rem; padding: 4px 8px; border-radius: var(--radius-sm); background-color: rgba(255, 107, 26, 0.08); margin-bottom: 6px;">Tomorrow, 07:30 AM</span>
-                      <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--color-black);">Precision Reformer Flow</h4>
+                      <h4 style="font-size: 1.05rem; font-weight: 700;">Precision Reformer Flow</h4>
                       <p style="font-size: 0.85rem; color: var(--color-gray); margin-top: 4px;"><i class="fas fa-user-circle"></i> Elena Rostova â€¢ Reformer Room</p>
                     </div>
-                    <button class="btn btn-secondary cancel-booking-btn" data-target="booking-slot-1" style="padding: 8px 12px; font-size: 0.75rem; border-color: rgba(27,27,27,0.15); color: var(--color-gray);">Cancel</button>
+                    <button class="btn btn-secondary cancel-booking-btn" data-target="booking-slot-1" style="padding: 8px 12px; font-size: 0.75rem;">Cancel</button>
                   </div>
                 </div>
 
@@ -185,10 +186,10 @@
                   <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
                     <div>
                       <span class="timeline-year" style="font-size: 0.85rem; padding: 4px 8px; border-radius: var(--radius-sm); background-color: rgba(255, 107, 26, 0.08); margin-bottom: 6px;">Sunday, 10:00 AM</span>
-                      <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--color-black);">Restorative Sound Bath</h4>
+                      <h4 style="font-size: 1.05rem; font-weight: 700;">Restorative Sound Bath</h4>
                       <p style="font-size: 0.85rem; color: var(--color-gray); margin-top: 4px;"><i class="fas fa-user-circle"></i> Maya Lin â€¢ Meditation Room</p>
                     </div>
-                    <button class="btn btn-secondary cancel-booking-btn" data-target="booking-slot-2" style="padding: 8px 12px; font-size: 0.75rem; border-color: rgba(27,27,27,0.15); color: var(--color-gray);">Cancel</button>
+                    <button class="btn btn-secondary cancel-booking-btn" data-target="booking-slot-2" style="padding: 8px 12px; font-size: 0.75rem;">Cancel</button>
                   </div>
                 </div>
 
@@ -211,7 +212,7 @@
       <div class="dash-pane" id="member-dash-book">
         <div style="margin-bottom: 24px;">
           <span class="user-tier">Reserve Slots</span>
-          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">Quick Booking Suite</h2>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem;">Quick Booking Suite</h2>
         </div>
 
         <div class="dash-card">
@@ -276,7 +277,7 @@
       <div class="dash-pane" id="member-dash-attendance">
         <div style="margin-bottom: 24px;">
           <span class="user-tier">Ritual Logs</span>
-          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">Attendance History</h2>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem;">Attendance History</h2>
         </div>
 
         <div class="dash-responsive-row">
@@ -293,10 +294,10 @@
               <span style="font-size: 0.72rem; font-weight: 700; color: var(--color-gray);">S</span>
               <span style="font-size: 0.72rem; font-weight: 700; color: var(--color-gray);">S</span>
 
-              <span style="color: rgba(27,27,27,0.2);">28</span>
-              <span style="color: rgba(27,27,27,0.2);">29</span>
-              <span style="color: rgba(27,27,27,0.2);">30</span>
-              <span style="color: rgba(27,27,27,0.2);">1</span>
+              <span class="cal-prev-day">28</span>
+              <span class="cal-prev-day">29</span>
+              <span class="cal-prev-day">30</span>
+              <span class="cal-prev-day">1</span>
               <span style="padding: 4px; border-radius: 50%; background-color: var(--color-orange); color: var(--color-white); font-weight: 700;">2</span>
               <span>3</span>
               <span>4</span>
@@ -344,7 +345,7 @@
       <div class="dash-pane" id="member-dash-videos">
         <div style="margin-bottom: 24px;">
           <span class="user-tier">Move At Home</span>
-          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">On-Demand Library</h2>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem;">On-Demand Library</h2>
         </div>
 
         <div class="videos-grid">
@@ -396,7 +397,7 @@
       <div class="dash-pane" id="member-dash-plan">
         <div style="margin-bottom: 24px;">
           <span class="user-tier">My Ritual plan</span>
-          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">Sanctuary Access Membership</h2>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem;">Sanctuary Access Membership</h2>
         </div>
 
         <div class="dash-responsive-row uneven-12-1">
@@ -404,15 +405,15 @@
             <h3 class="hours-heading" style="font-size: 1.15rem; margin-bottom: 20px;">Active Plan Details</h3>
             <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
               <span style="color: var(--color-gray); font-weight: 600;">Pricing Tier</span>
-              <span style="font-weight: 700; color: var(--color-black);">Sanctuary Access</span>
+              <span style="font-weight: 700;">Sanctuary Access</span>
             </div>
             <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
               <span style="color: var(--color-gray); font-weight: 600;">Monthly Fee</span>
-              <span style="font-weight: 700; color: var(--color-black);">$290 / mo</span>
+              <span style="font-weight: 700;">$290 / mo</span>
             </div>
             <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
               <span style="color: var(--color-gray); font-weight: 600;">Next Billing Date</span>
-              <span style="font-weight: 700; color: var(--color-black);">June 12, 2026</span>
+              <span style="font-weight: 700;">June 12, 2026</span>
             </div>
             <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
               <span style="color: var(--color-gray); font-weight: 600;">Registered Classes Remaining</span>
@@ -441,14 +442,14 @@
       <div class="dash-pane" id="member-dash-notifications">
         <div style="margin-bottom: 24px;">
           <span class="user-tier">Inbox Feed</span>
-          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">Studio Alerts</h2>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem;">Studio Alerts</h2>
         </div>
 
         <div class="dash-card" style="display: flex; flex-direction: column; gap: 16px;">
           <!-- Alert 1 -->
           <div style="padding: 16px; border-radius: var(--radius-md); background-color: rgba(255,107,26,0.05); border-left: 4px solid var(--color-orange);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-              <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-black);">Priority Waitlist Approved!</h4>
+              <h4 style="font-size: 1rem; font-weight: 700;">Priority Waitlist Approved!</h4>
               <span style="font-size: 0.75rem; color: var(--color-gray);">May 22, 10:45 AM</span>
             </div>
             <p style="font-size: 0.88rem; color: var(--color-gray);">Your waitlist position for tomorrow's 07:30 AM Precision Reformer Flow has cleared. You have been automatically booked in slot 12.</p>
@@ -457,7 +458,7 @@
           <!-- Alert 2 -->
           <div style="padding: 16px; border-radius: var(--radius-md); background-color: var(--color-cream); border-left: 4px solid var(--color-beige);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-              <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-black);">Trainer Substitution Alert</h4>
+              <h4 style="font-size: 1rem; font-weight: 700;">Trainer Substitution Alert</h4>
               <span style="font-size: 0.75rem; color: var(--color-gray);">May 20, 04:15 PM</span>
             </div>
             <p style="font-size: 0.88rem; color: var(--color-gray);">Please note that master coach Maya Lin will be guiding Sunday's Restorative Sound Bath in place of Elena Rostova. The time remains 10:00 AM.</p>
@@ -466,7 +467,7 @@
           <!-- Alert 3 -->
           <div style="padding: 16px; border-radius: var(--radius-md); background-color: var(--color-cream); border-left: 4px solid var(--color-beige);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-              <h4 style="font-size: 1rem; font-weight: 700; color: var(--color-black);">Holiday Studio Hours</h4>
+              <h4 style="font-size: 1rem; font-weight: 700;">Holiday Studio Hours</h4>
               <span style="font-size: 0.75rem; color: var(--color-gray);">May 15, 09:00 AM</span>
             </div>
             <p style="font-size: 0.88rem; color: var(--color-gray);">VYORA will operate on holiday schedule next Monday. Classes are capped between 09:00 AM and 05:00 PM only.</p>
@@ -478,7 +479,7 @@
       <div class="dash-pane" id="member-dash-settings">
         <div style="margin-bottom: 24px;">
           <span class="user-tier">System Credentials</span>
-          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem; color: var(--color-black);">Profile Settings</h2>
+          <h2 style="font-family: var(--font-heading); font-weight: 800; font-size: 1.8rem;">Profile Settings</h2>
         </div>
 
         <div class="dash-card" style="max-width: 600px;">
@@ -561,7 +562,8 @@
     </div>
   </div>
 
-  <!-- User Account Auth Modals -->\n\n    <!-- User Account Auth Modals -->
+  <!-- User Account Auth Modals -->
+    <!-- User Account Auth Modals -->
     <div class="auth-overlay" id="authModal">
       <div class="auth-modal-box">
         <button class="auth-close" id="auth-close" aria-label="Close Form"><i class="fas fa-times"></i></button>
@@ -651,7 +653,8 @@
           </div>
         </div>
       </div>
-    </div>\n\n    <!-- JavaScript -->
+    </div>
+    <!-- JavaScript -->
   <script src="main.js"></script>
   <script>
     // Dashboard Mobile Sidebar Hamburger

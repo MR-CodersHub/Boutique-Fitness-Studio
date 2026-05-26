@@ -6,6 +6,7 @@
   <title>Contact Us | VYORA Wellness</title>
   <meta name="description" content="Reach out to VYORA. Send us an inquiry, check our hours of operation, and find our Beverly Hills location details.">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* Dedicated Contact Styles */
@@ -168,15 +169,15 @@
 <body>
 
   <!-- Floating Background Shapes -->
-  <div class="floating-shape shape-circle shape-1"></div>
-  <div class="floating-shape shape-ring shape-3"></div>
+  <!-- shape-ring hidden on inner pages: it overlaps hero content at top:40% -->
+  <div class="floating-shape shape-circle shape-1" style="opacity: 0.12;"></div>
 
   <!-- Header Navigation -->
   <header class="navbar" id="navbar">
     <div class="container">
       <a href="index.html" class="logo" id="nav-logo">
         <div class="logo-icon"></div>
-        <div class="logo-text">VYORA</div>
+        <div class="logo-text">VY<span>O</span>RA</div>
       </a>
       
       <nav class="nav-menu" id="nav-menu">
@@ -395,7 +396,7 @@
         <div>
           <a href="index.html" class="logo footer-logo">
             <div class="logo-icon"></div>
-            <div class="logo-text">VYORA</div>
+            <div class="logo-text">VY<span>O</span>RA</div>
           </a>
           <p class="footer-about-text">
             A premium boutique wellness oasis crafted to elevate physical strength and mental silence. Experience movement as self-care.
@@ -513,7 +514,8 @@
     </div>
   </div>
 
-  <!-- User Account Auth Modals -->\n\n    <!-- User Account Auth Modals -->
+  <!-- User Account Auth Modals -->
+    <!-- User Account Auth Modals -->
     <div class="auth-overlay" id="authModal">
       <div class="auth-modal-box">
         <button class="auth-close" id="auth-close" aria-label="Close Form"><i class="fas fa-times"></i></button>
@@ -603,7 +605,8 @@
           </div>
         </div>
       </div>
-    </div>\n\n    <!-- JavaScript -->
+    </div>
+    <!-- JavaScript -->
   <script src="main.js"></script>
 </body>
 </html>

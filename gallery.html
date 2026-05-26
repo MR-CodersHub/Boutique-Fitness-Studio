@@ -6,20 +6,21 @@
   <title>Sanctuary Gallery | VYORA Architectural Showcase</title>
   <meta name="description" content="Tour VYORA's architectural sanctuary interior, heated reformer plaster arches, botanical zen gardens, and Matcha lounges.">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
   <!-- Floating Background Shapes -->
-  <div class="floating-shape shape-circle shape-1" style="opacity: 0.15;"></div>
-  <div class="floating-shape shape-ring shape-3" style="opacity: 0.15;"></div>
+  <!-- shape-ring hidden on inner pages: it overlaps hero content at top:40% -->
+  <div class="floating-shape shape-circle shape-1" style="opacity: 0.12;"></div>
 
   <!-- Header Navigation -->
   <header class="navbar" id="navbar">
     <div class="container">
       <a href="index.html" class="logo" id="nav-logo">
         <div class="logo-icon"></div>
-        <div class="logo-text">VYORA</div>
+        <div class="logo-text">VY<span>O</span>RA</div>
       </a>
       
       <nav class="nav-menu" id="nav-menu">
@@ -176,7 +177,7 @@
         <!-- Image 5 -->
         <div class="gallery-item program-card reveal" data-category="yoga">
           <div class="gallery-img-box" style="position: relative; overflow: hidden; border-radius: var(--radius-lg); aspect-ratio: 4/3; cursor: pointer; border: 1px solid var(--color-beige);">
-            <img src="https://images.unsplash.com/photo-1579126038374-606c598a8a62?q=80&w=600&auto=format&fit=crop" alt="Sound Bath Singing Bowls" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
+            <img src="assets/singing_bowls.png" alt="Sound Bath Singing Bowls" style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-smooth);">
             <div class="gallery-hover-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 107, 26, 0.15); opacity: 0; transition: var(--transition-smooth); display: flex; align-items: center; justify-content: center; color: var(--color-white); font-size: 1.5rem;">
               <i class="fas fa-expand"></i>
             </div>
@@ -217,7 +218,7 @@
         <div>
           <a href="index.html" class="logo footer-logo">
             <div class="logo-icon"></div>
-            <div class="logo-text">VYORA</div>
+            <div class="logo-text">VY<span>O</span>RA</div>
           </a>
           <p class="footer-about-text">
             A premium boutique wellness oasis crafted to elevate physical strength and mental silence. Experience movement as self-care.
@@ -331,7 +332,8 @@
     </div>
   </div>
 
-  <!-- User Account Auth Modals -->\n\n    <!-- User Account Auth Modals -->
+  <!-- User Account Auth Modals -->
+    <!-- User Account Auth Modals -->
     <div class="auth-overlay" id="authModal">
       <div class="auth-modal-box">
         <button class="auth-close" id="auth-close" aria-label="Close Form"><i class="fas fa-times"></i></button>
@@ -421,7 +423,8 @@
           </div>
         </div>
       </div>
-    </div>\n\n    <!-- JavaScript -->
+    </div>
+    <!-- JavaScript -->
   <script src="main.js"></script>
 </body>
 </html>

@@ -433,7 +433,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // 9.8 Generic Page Category Filters (Movement Pillars, Trainers, Gallery, Blog)
   // ==========================================
   const initPageFilters = () => {
-    // Helper to initialize filters for any section/page
+    /**
+     * Race-condition-safe filter group initializer.
+     *
+     * Previous approach used setTimeout to defer display:none, which caused
+     * stale callbacks to fire on already-visible cards when the user clicked
+     * a new filter quickly. This version:
+     *   - tracks and cancels any pending hide-timeout per card
+     *   - immediately hides non-matching cards (display:none)
+     *   - uses double-rAF for matching cards so the browser can render
+     *     the display change before starting the opacity/transform animation
+     *   - adds .active to .reveal cards so the scroll-reveal CSS class
+     *     does not fight the inline opacity set by the filter
+     */
     const initFilterGroup = (filterContainerSelector, cardsContainerSelector, cardSelector, extraCallback = null) => {
       const container = document.querySelector(filterContainerSelector);
       const grid = document.querySelector(cardsContainerSelector);
@@ -443,32 +455,68 @@ document.addEventListener('DOMContentLoaded', () => {
       const cards = grid.querySelectorAll(cardSelector);
       if (btns.length === 0 || cards.length === 0) return;
 
+      // Map<HTMLElement, timeoutId> — tracks pending hide timeouts so we can
+      // cancel them when a new filter is chosen before the timeout fires.
+      const pendingHide = new Map();
+
       btns.forEach(btn => {
         btn.addEventListener('click', () => {
+          // 1. Update active button state
           btns.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
 
           const chosenFilter = btn.getAttribute('data-filter');
-          
+
+          // 2. Optional extra callback (e.g. toggle featured blog banner)
           if (extraCallback) {
             extraCallback(chosenFilter);
           }
 
+          // 3. Process each card
           cards.forEach(card => {
             const category = card.getAttribute('data-category');
+            const isMatch = chosenFilter === 'all' || category === chosenFilter;
 
-            if (chosenFilter === 'all' || category === chosenFilter) {
+            // Cancel any stale hide-timeout for this card
+            if (pendingHide.has(card)) {
+              clearTimeout(pendingHide.get(card));
+              pendingHide.delete(card);
+            }
+
+            if (isMatch) {
+              // --- Show card ---
+              // Make it visible in the grid immediately (removes layout gap)
               card.style.display = '';
-              setTimeout(() => {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-              }, 50);
-            } else {
+              // Ensure .reveal cards are marked active so CSS doesn't override opacity
+              if (card.classList.contains('reveal') && !card.classList.contains('active')) {
+                card.classList.add('active');
+              }
+              // Start from hidden state then animate in via double-rAF
+              // (first rAF: browser processes display change; second: triggers transition)
               card.style.opacity = '0';
-              card.style.transform = 'translateY(20px)';
-              setTimeout(() => {
-                card.style.display = 'none';
-              }, 300);
+              card.style.transform = 'translateY(12px)';
+              requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                  card.style.opacity = '1';
+                  card.style.transform = 'translateY(0)';
+                });
+              });
+            } else {
+              // --- Hide card ---
+              // Animate out first, then remove from layout flow
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(10px)';
+              const tid = setTimeout(() => {
+                // Only hide if still non-matching (guard against rapid clicks)
+                const currentFilter = container.querySelector('.blog-filter-btn.active');
+                const cf = currentFilter ? currentFilter.getAttribute('data-filter') : 'all';
+                const stillHidden = cf !== 'all' && card.getAttribute('data-category') !== cf;
+                if (stillHidden) {
+                  card.style.display = 'none';
+                }
+                pendingHide.delete(card);
+              }, 350);
+              pendingHide.set(card, tid);
             }
           });
         });
@@ -490,21 +538,24 @@ document.addEventListener('DOMContentLoaded', () => {
       if (featuredBanner) {
         if (chosenFilter === 'all') {
           featuredBanner.style.display = '';
-          setTimeout(() => {
-            featuredBanner.style.opacity = '1';
-            featuredBanner.style.transform = 'translateY(0)';
-          }, 50);
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              featuredBanner.style.opacity = '1';
+              featuredBanner.style.transform = 'translateY(0)';
+            });
+          });
         } else {
           featuredBanner.style.opacity = '0';
           featuredBanner.style.transform = 'translateY(20px)';
           setTimeout(() => {
             featuredBanner.style.display = 'none';
-          }, 300);
+          }, 350);
         }
       }
     });
   };
   initPageFilters();
+
 
   // ==========================================
   // 10. Theme Switcher (Light / Dark Mode)

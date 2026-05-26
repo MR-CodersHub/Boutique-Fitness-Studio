@@ -761,12 +761,18 @@ body.theme-dark .hero-badge {
 /* Fitness Programs */
 .programs {
   background-color: var(--color-cream);
+  /* Override .section overflow:hidden so card hover box-shadows aren't clipped */
+  overflow: visible;
 }
 
 .programs-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  align-items: start; /* Prevent height mismatches when cards are hidden/shown via filter */
+  /* Allow box-shadows to breathe without clipping */
+  padding: 4px 4px 8px;
+  box-sizing: border-box;
 }
 
 .program-card {
@@ -774,12 +780,17 @@ body.theme-dark .hero-badge {
   border-radius: var(--radius-lg);
   padding: 40px 32px;
   box-shadow: var(--shadow-premium);
-  transition: var(--transition-smooth);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  /* Removed height: 100% — causes layout issues during filter transitions
+     Use min-height instead so the grid row auto-sizes naturally */
+  min-height: 280px;
+  will-change: transform, opacity;
 }
 
 .program-card::after {
@@ -839,8 +850,9 @@ body.theme-dark .hero-badge {
 }
 
 .program-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(27, 27, 27, 0.06);
+  transform: translateY(-6px);
+  /* Reduced shadow spread — prevents shadow bleeding outside container boundaries */
+  box-shadow: 0 16px 40px rgba(27, 27, 27, 0.09), 0 4px 12px rgba(27, 27, 27, 0.04);
 }
 
 .program-card:hover::after {
@@ -930,12 +942,17 @@ body.theme-dark .hero-badge {
 /* Trainer Profiles */
 .trainers {
   background-color: var(--color-cream);
+  /* Override .section overflow:hidden so trainer card hover shadows aren't clipped */
+  overflow: visible;
 }
 
 .trainers-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
+  align-items: start; /* Prevent height mismatches when cards are filtered */
+  padding: 4px 4px 8px;
+  box-sizing: border-box;
 }
 
 .trainer-card {
@@ -1552,7 +1569,8 @@ body.theme-dark .hero-badge {
 .blog-filters {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  flex-wrap: wrap; /* Allow pill buttons to wrap on smaller screens */
+  gap: 10px 12px;
   margin-bottom: 50px;
 }
 .blog-filter-btn {
@@ -2252,6 +2270,7 @@ body.theme-dark .forgot-password-link:hover {
   }
   .programs-grid {
     grid-template-columns: repeat(2, 1fr);
+    padding: 4px 2px 8px;
   }
   .benefits-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2316,8 +2335,9 @@ body.theme-dark .forgot-password-link:hover {
   }
   .programs-grid {
     grid-template-columns: 1fr;
-    max-width: 450px;
-    margin: 0 auto;
+    /* Removed max-width: 450px — single-column cards should fill the full container width */
+    max-width: 100%;
+    margin: 0;
   }
   .trainers-grid {
     grid-template-columns: 1fr;
@@ -2466,7 +2486,7 @@ body.theme-dark .navbar.sticky {
 }
 
 body.theme-dark .logo-text {
-  color: var(--color-white);
+  color: var(--color-white) !important;
 }
 
 body.theme-dark .nav-link {
@@ -5582,5 +5602,565 @@ body.theme-dark .auth-tab.active {
     padding: 48px 24px;
   }
 }
+
+/* ==========================================================================
+   Dashboard Visibility & Readability Dark Mode Enhancements
+   ========================================================================== */
+body.theme-dark .dash-pane h2 {
+  color: var(--color-white) !important;
+}
+
+body.theme-dark .dash-pane h2 span {
+  color: var(--color-orange) !important;
+}
+
+body.theme-dark .dash-pane h3 {
+  color: var(--color-white) !important;
+}
+
+body.theme-dark .dash-pane h4 {
+  color: var(--color-white) !important;
+}
+
+body.theme-dark .dash-pane p,
+body.theme-dark .dash-pane .about-text {
+  color: #CCCCCC !important;
+}
+
+body.theme-dark .dash-pane span:not(.timeline-year):not(.status-badge):not(.user-tier) {
+  color: #CCCCCC !important;
+}
+
+body.theme-dark .dash-pane label {
+  color: var(--color-white) !important;
+}
+
+body.theme-dark .dash-pane .user-tier {
+  color: var(--color-peach) !important;
+}
+
+/* Sidebar Menu Highlight Enhancements */
+body.theme-dark .dash-sidebar-link:hover,
+body.theme-dark .dash-sidebar-link.active {
+  background-color: rgba(255, 107, 26, 0.15) !important;
+  color: var(--color-orange) !important;
+  border-color: rgba(255, 107, 26, 0.3) !important;
+  box-shadow: 0 0 15px rgba(255, 107, 26, 0.15) !important;
+}
+
+body.theme-dark .dash-sidebar-link.active i,
+body.theme-dark .dash-sidebar-link:hover i {
+  color: var(--color-orange) !important;
+}
+
+/* KPI Cards Glow & Styling */
+body.theme-dark .dash-card {
+  background: linear-gradient(145deg, #1b1b1b 0%, #131313 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65) !important;
+}
+
+body.theme-dark .dash-card:hover {
+  border-color: rgba(255, 107, 26, 0.35) !important;
+  box-shadow: 0 16px 48px rgba(255, 107, 26, 0.1), 0 0 1px rgba(255, 107, 26, 0.35) !important;
+  transform: translateY(-4px) !important;
+}
+
+body.theme-dark .dash-stat-icon {
+  background-color: rgba(255, 107, 26, 0.15) !important;
+  color: var(--color-orange) !important;
+  box-shadow: 0 0 20px rgba(255, 107, 26, 0.35) !important;
+}
+
+body.theme-dark .dash-stat-val {
+  color: var(--color-white) !important;
+}
+
+body.theme-dark .dash-stat-lbl {
+  color: #AAAAAA !important;
+}
+
+/* Circular SVG Objectives Progress */
+body.theme-dark .dash-circle-num {
+  color: var(--color-white) !important;
+}
+
+body.theme-dark .dash-circle-sub {
+  color: #AAAAAA !important;
+}
+
+body.theme-dark .dash-circle-wrapper svg circle:first-child {
+  stroke: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Hydration Tracker Text & Drops */
+body.theme-dark #water-text {
+  color: var(--color-white) !important;
+}
+
+/* Upcoming Classes Feed & Cancel Buttons */
+body.theme-dark #bookings-feed .faq-item {
+  background-color: #1a1a1a !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.theme-dark #bookings-feed .timeline-year {
+  background-color: rgba(255, 107, 26, 0.15) !important;
+  color: var(--color-orange) !important;
+}
+
+body.theme-dark .cancel-booking-btn {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #CCCCCC !important;
+  background-color: transparent !important;
+}
+
+body.theme-dark .cancel-booking-btn:hover {
+  background-color: #FF3B30 !important;
+  color: var(--color-white) !important;
+  border-color: #FF3B30 !important;
+}
+
+/* Quick Book Timetable Suite */
+body.theme-dark .table-responsive {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.theme-dark .admin-table {
+  background-color: #151515 !important;
+}
+
+body.theme-dark .admin-table th {
+  background-color: rgba(255, 107, 26, 0.12) !important;
+  color: var(--color-white) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body.theme-dark .admin-table td {
+  color: #CCCCCC !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Attendance History mock calendars */
+body.theme-dark #member-dash-attendance span:not([style*="background-color"]):not([style*="border"]) {
+  color: #CCCCCC !important;
+}
+
+body.theme-dark #member-dash-attendance span[style*="rgba(27,27,27"] {
+  color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.theme-dark #member-dash-attendance span[style*="background-color: var(--color-orange)"] {
+  color: var(--color-white) !important;
+}
+
+body.theme-dark #member-dash-attendance span[style*="border: 2px solid var(--color-orange)"] {
+  color: var(--color-orange) !important;
+  font-weight: 800 !important;
+}
+
+/* Membership plan info labels and values */
+body.theme-dark #member-dash-plan span[style*="color: var(--color-gray)"] {
+  color: #AAAAAA !important;
+}
+
+body.theme-dark #member-dash-plan span[style*="color: var(--color-black)"] {
+  color: var(--color-white) !important;
+}
+
+body.theme-dark #member-dash-plan span[style*="color: var(--color-orange)"] {
+  color: var(--color-orange) !important;
+}
+
+body.theme-dark #member-dash-plan .pricing-features li {
+  color: #CCCCCC !important;
+}
+
+body.theme-dark .dash-pane .btn-secondary {
+  background-color: transparent !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #F9F9F9 !important;
+}
+
+body.theme-dark .dash-pane .btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: var(--color-white) !important;
+}
+
+/* Studio Alerts Inbox Alerts list cards */
+body.theme-dark #member-dash-notifications .dash-card > div {
+  background-color: #1e1e1e !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.theme-dark #member-dash-notifications .dash-card > div[style*="rgba(255,107,26"] {
+  background-color: rgba(255, 107, 26, 0.08) !important;
+  border-left-color: var(--color-orange) !important;
+}
+
+body.theme-dark #member-dash-notifications h4 {
+  color: var(--color-white) !important;
+}
+
+body.theme-dark #member-dash-notifications p {
+  color: #CCCCCC !important;
+}
+
+body.theme-dark #member-dash-notifications span {
+  color: #AAAAAA !important;
+}
+
+/* Profile inputs validation states & forms */
+body.theme-dark .dash-pane .form-input {
+  background-color: #1a1a1a !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--color-white) !important;
+}
+
+body.theme-dark .dash-pane .form-input:focus {
+  border-color: var(--color-orange) !important;
+  box-shadow: 0 0 10px rgba(255, 107, 26, 0.25) !important;
+}
+
+/* Mobile topbar adjustments */
+body.theme-dark .dash-mobile-topbar {
+  background-color: #171717 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+body.theme-dark .dash-sidebar-close {
+  color: var(--color-white) !important;
+}
+
+/* Admin Command Center Panels & SaaS Widgets */
+body.theme-dark .admin-card {
+  background: linear-gradient(145deg, #1b1b1b 0%, #131313 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65) !important;
+}
+
+body.theme-dark .admin-card:hover {
+  border-color: rgba(255, 107, 26, 0.35) !important;
+  box-shadow: 0 16px 48px rgba(255, 107, 26, 0.1), 0 0 1px rgba(255, 107, 26, 0.35) !important;
+  transform: translateY(-4px) !important;
+}
+
+body.theme-dark .admin-card-lbl {
+  color: #AAAAAA !important;
+}
+
+body.theme-dark .admin-card-val {
+  color: var(--color-white) !important;
+}
+
+body.theme-dark .admin-card-icon {
+  background-color: rgba(255, 107, 26, 0.15) !important;
+  color: var(--color-orange) !important;
+  box-shadow: 0 0 20px rgba(255, 107, 26, 0.25) !important;
+}
+
+/* SaaS chart labels and values */
+body.theme-dark .admin-chart-lbl {
+  color: #CCCCCC !important;
+}
+
+body.theme-dark .admin-chart-val {
+  color: var(--color-white) !important;
+}
+
+body.theme-dark .admin-chart-bar-bg {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* ==============================================
+   DASHBOARD DARK THEME — COMPREHENSIVE TEXT FIX
+   Overrides all inline color: var(--color-black)
+   to ensure full readability on dark cards.
+   ============================================== */
+
+/* Pane-level H2 page titles */
+body.theme-dark .dash-pane h2,
+body.theme-dark .dash-pane > div > h2 {
+  color: var(--color-white) !important;
+}
+
+/* Card-level H3 section headings */
+body.theme-dark .dash-card h3,
+body.theme-dark .dash-card > h3 {
+  color: var(--color-white) !important;
+}
+
+/* Card-level H4 sub-headings (booking titles, alert titles, goal status) */
+body.theme-dark .dash-card h4,
+body.theme-dark .dash-pane h4 {
+  color: var(--color-white) !important;
+}
+
+/* Goal status title specifically */
+body.theme-dark #goal-status-title {
+  color: var(--color-white) !important;
+}
+
+/* Goal description text inside the weekly card */
+body.theme-dark .dash-card > div p,
+body.theme-dark .dash-column .dash-card p {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* Water tracker "4 / 8 Cups Logged" text */
+body.theme-dark #water-text {
+  color: var(--color-white) !important;
+}
+
+/* Hydration tracker sub-description */
+body.theme-dark .water-tracker + p,
+body.theme-dark .dash-card > p {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Membership plan key-value labels */
+body.theme-dark .dash-card > div > span:first-child {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Membership plan key-value amounts (right side values) */
+body.theme-dark .dash-card > div > span:last-child {
+  color: var(--color-white) !important;
+}
+
+/* Attendance calendar — faded day numbers (prev month) */
+body.theme-dark .dash-card span[style*="rgba(27,27,27,0.2)"] {
+  color: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Attendance calendar — regular day numbers with no highlight */
+body.theme-dark .dash-card > div > div span:not([style*="background-color"]):not([class]) {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Attendance calendar day-of-week headers (M T W T F S S) */
+body.theme-dark .dash-card span[style*="color: var(--color-gray)"] {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Notification alert headings */
+body.theme-dark [style*="border-left: 4px solid var(--color-orange)"] h4,
+body.theme-dark [style*="border-left: 4px solid var(--color-beige)"] h4 {
+  color: var(--color-white) !important;
+}
+
+/* Notification alert body text */
+body.theme-dark [style*="border-left: 4px solid var(--color-orange)"] p,
+body.theme-dark [style*="border-left: 4px solid var(--color-beige)"] p {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* Notification "Alert 2 / 3" cream background — fix in dark mode */
+body.theme-dark [style*="background-color: var(--color-cream)"] {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* Notification timestamp spans */
+body.theme-dark [style*="border-left"] > div > span {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* Booking cards: class title h4 */
+body.theme-dark .faq-item h4 {
+  color: var(--color-white) !important;
+}
+
+/* Booking cards: "Tomorrow, 07:30 AM" badge */
+body.theme-dark .timeline-year {
+  color: var(--color-orange) !important;
+}
+
+/* Booking cards: coach + room subtitle */
+body.theme-dark .faq-item p {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+/* Booking table cells */
+body.theme-dark .dash-card .admin-table td,
+body.theme-dark .dash-card .admin-table tbody tr {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+body.theme-dark .dash-card .admin-table th {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+body.theme-dark .dash-card .admin-table tbody tr:hover {
+  background-color: rgba(255, 107, 26, 0.06) !important;
+}
+
+/* Settings form labels */
+body.theme-dark .dash-card .form-label {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Settings form inputs */
+body.theme-dark .dash-card .form-input {
+  color: var(--color-white) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Circular goal ring sub-label ("Classes") */
+body.theme-dark .dash-circle-sub {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Pricing features list items */
+body.theme-dark .pricing-features li {
+  color: rgba(255, 255, 255, 0.75) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Badge names */
+body.theme-dark .badge-name {
+  color: var(--color-white) !important;
+}
+
+/* Video card info section */
+body.theme-dark .video-title {
+  color: var(--color-white) !important;
+}
+
+body.theme-dark .video-coach {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+/* Cancel booking button in dark mode */
+body.theme-dark .cancel-booking-btn {
+  color: rgba(255, 255, 255, 0.65) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* "Pause Membership" secondary btn in dark mode */
+body.theme-dark .dash-card .btn-secondary {
+  color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+body.theme-dark .dash-card .btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* "Available Public Timetables" description under booking h3 */
+body.theme-dark .dash-card > p[style] {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Empty bookings warning text */
+body.theme-dark #empty-bookings-warning p {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Attendance summary "May 2026 Attendance" calendar grid parent */
+body.theme-dark .dash-card [style*="grid-template-columns: repeat(7"] span:not([style*="background-color"]) {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* user-tier "Welcome Back" badge */
+body.theme-dark .user-tier {
+  color: var(--color-orange) !important;
+}
+
+/* Faq-item background in dark mode (used as booking card containers) */
+body.theme-dark .faq-item[style*="border-color"] {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Attendance calendar — previous-month faded day numbers */
+.cal-prev-day {
+  color: rgba(27, 27, 27, 0.2);
+}
+
+body.theme-dark .cal-prev-day {
+  color: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Attendance calendar — current-month regular day numbers */
+body.theme-dark .dash-card [style*="grid-template-columns: repeat(7"] > span:not([style*="background-color"]):not([style*="border"]):not([class]) {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+/* "Today" ring border indicator in dark calendar */
+body.theme-dark .dash-card span[style*="border: 2px solid var(--color-orange)"] {
+  color: var(--color-white) !important;
+}
+
+/* Dashboard main content area base text in dark */
+body.theme-dark .dash-main-content {
+  color: var(--color-white);
+}
+
+/* Dashboard layout background in dark */
+body.theme-dark .dashboard-layout {
+  background-color: #111111;
+}
+
+/* Table inside dash-card — responsive wrapper */
+body.theme-dark .dash-card .table-responsive {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* Booking table header row dark bg */
+body.theme-dark .dash-card .admin-table thead {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* Booking table row alternate zebra in dark */
+body.theme-dark .dash-card .admin-table tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Video category pill label in dark */
+body.theme-dark .video-category {
+  color: var(--color-orange) !important;
+  background-color: rgba(255, 107, 26, 0.12) !important;
+}
+
+/* Video card info background in dark */
+body.theme-dark .video-info {
+  background-color: transparent;
+}
+
+/* Stat card: Ensure val and label render white in dark for all browsers */
+body.theme-dark .dash-stat-val {
+  color: var(--color-white) !important;
+}
+
+body.theme-dark .dash-stat-lbl {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+/* Circle number in dark */
+body.theme-dark .dash-circle-num {
+  color: var(--color-white) !important;
+}
+
+/* Sidebar header bottom border in dark */
+body.theme-dark .dash-sidebar-header {
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Sidebar user name */
+body.theme-dark .dash-sidebar-user {
+  color: var(--color-white) !important;
+}
+
+/* Dash card hover border in dark mode */
+body.theme-dark .dash-card:hover {
+  border-color: rgba(255, 107, 26, 0.4) !important;
+  box-shadow: 0 8px 30px rgba(255, 107, 26, 0.08), 0 20px 40px rgba(0,0,0,0.3) !important;
+}
+
+
 
 
